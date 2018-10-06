@@ -206,7 +206,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 990983626}
-  - component: {fileID: 990983627}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -227,22 +226,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &990983627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 990983625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 529334e2de5e2f1449806c348c872acb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodo: {fileID: 135446473}
-  nodoInicial: {fileID: 135446473}
-  rows: 20
-  columns: 20
-  distanciaEntreNodos: 5
 --- !u!1001 &1071550946
 Prefab:
   m_ObjectHideFlags: 0
