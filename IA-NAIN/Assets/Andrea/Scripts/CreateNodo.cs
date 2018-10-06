@@ -44,13 +44,7 @@ public class CreateNodo : MonoBehaviour {
                         Destroy(aux);
                 }*/
 
-                bool Wall = true;
-                if(Physics.CheckSphere(aux.transform.position, nodeRadius*2, WallMask))
-                {
-                    Wall = false;
-                }
-
-                matrixNodo[f, c] = new Nodo(Wall, aux.transform.position, f, c); 
+                
 
                 
             }
