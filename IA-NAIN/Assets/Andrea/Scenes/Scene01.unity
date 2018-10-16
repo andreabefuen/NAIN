@@ -244,13 +244,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5b1d61e7b84a9e40b41afb038c3639a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartPosition: {fileID: 135446477}
-  WallMask:
+  unwalkableMask:
     serializedVersion: 2
     m_Bits: 2048
-  gridWorldSize: {x: 200, y: 220}
+  gridWorldSize: {x: 244.7, y: 264.07}
   nodeRadius: 2
-  Distance: 0
 --- !u!114 &990983628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,8 +260,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92e90c56eb7d4d24cab79a8063a101e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartPosition: {fileID: 1071550952}
-  TargetPosition: {fileID: 573037043}
+  seeker: {fileID: 573037043}
+  target: {fileID: 1071550952}
 --- !u!1001 &1071550946
 Prefab:
   m_ObjectHideFlags: 0
