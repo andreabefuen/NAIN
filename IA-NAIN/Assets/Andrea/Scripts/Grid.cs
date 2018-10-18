@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Grid : MonoBehaviour {
 
-    public LayerMask unwalkableMask;
-    public Vector2 gridWorldSize;
-    public float nodeRadius;
-    Nodo[,] grid;
+    public LayerMask unwalkableMask; //Walls and obstacles
+    public Vector2 gridWorldSize; //Size for the grid
+    public float nodeRadius; //size of the node
+    Nodo[,] grid; //Matrix of nodes for the grid 
 
     float nodeDiameter;
     int gridSizeX, gridSizeY;
@@ -15,6 +15,7 @@ public class Grid : MonoBehaviour {
     void Awake()
     {
         nodeDiameter = nodeRadius * 2;
+        //Dependiendo del tamaño de los nodos y el tamaño del grid en el mundo, crearemos el tamaño del grid
         gridSizeX = Mathf.RoundToInt(gridWorldSize.x / nodeDiameter);
         gridSizeY = Mathf.RoundToInt(gridWorldSize.y / nodeDiameter);
         CreateGrid();
@@ -74,6 +75,9 @@ public class Grid : MonoBehaviour {
     }
 
     public List<Nodo> path;
+
+
+    //Auxiliar function for see all the nodes in the grid
     void OnDrawGizmos()
     {
         Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, 1, gridWorldSize.y));
