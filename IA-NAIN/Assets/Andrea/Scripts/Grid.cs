@@ -103,4 +103,9 @@ public class Grid : MonoBehaviour {
             }
         }
     }
+
+    public List<Nodo> GetPath()
+    {
+        return path;
+    }
 }
