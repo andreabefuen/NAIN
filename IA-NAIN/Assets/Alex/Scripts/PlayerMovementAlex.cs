@@ -5,25 +5,62 @@ using UnityEngine;
 public class PlayerMovementAlex : MonoBehaviour {
 	private Rigidbody rb;
 	private float velocidad;
+    float hori;
+    float vert;
 	// Use this for initialization
 	void Awake () {
 		rb = GetComponent<Rigidbody> ();
-		velocidad = 0.5f;
+		velocidad = 10f;
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        hori = Input.GetAxis("Horizontal");
+        vert = Input.GetAxis("Vertical");
 
-		if (Input.GetKey (KeyCode.A)) {
-			this.transform.Translate (Vector3.left * velocidad);
-		} if (Input.GetKey (KeyCode.D)) {
-			this.transform.Translate (Vector3.right * velocidad);
-		} if (Input.GetKey (KeyCode.W)) {
-			this.transform.Translate (Vector3.forward * velocidad);
-		} if (Input.GetKey (KeyCode.S)) {
-			this.transform.Translate (Vector3.back * velocidad);
-		} 
-		
-	}
+        if(hori > 0.9 && vert == 0 )
+        {
+            transform.eulerAngles = new Vector3(0, 90, 0);
+        }
+        else if (hori > 0.9 && vert > 0.9)
+        {
+            transform.eulerAngles = new Vector3(00, 45, 0);
+        }
+        else if (hori == 0 && vert > 0.9)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+        else if (hori < -0.9 && vert > 0.9)
+        {
+            transform.eulerAngles = new Vector3(0, 315, 0);
+        }
+        else if (hori < -0.9 && vert == 0)
+        {
+            transform.eulerAngles = new Vector3(0, 270, 0);
+
+        }
+        else if (hori < -0.9 && vert < -0.9)
+        {
+            transform.eulerAngles = new Vector3(0, 235, 0);
+
+        }
+        else if (hori == 0 && vert < 0)
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+
+        }
+        else if (hori > 0 && vert < 0)
+        {
+            transform.eulerAngles = new Vector3(0, 135, 0);
+
+        }
+        if (Mathf.Abs(hori) > 0.9 || Mathf.Abs(vert) > 0.9)
+        {
+            transform.Translate(0, 0, velocidad * Time.deltaTime);
+
+        }
+
+
+    }
 }
