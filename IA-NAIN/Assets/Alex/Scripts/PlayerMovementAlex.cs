@@ -5,62 +5,103 @@ using UnityEngine;
 public class PlayerMovementAlex : MonoBehaviour {
 	private Rigidbody rb;
 	private float velocidad;
-    float hori;
-    float vert;
+    bool[] directions;
+    bool run;
 	// Use this for initialization
 	void Awake () {
 		rb = GetComponent<Rigidbody> ();
 		velocidad = 10f;
-		
+        directions = new bool[4];
+		run = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        hori = Input.GetAxis("Horizontal");
-        vert = Input.GetAxis("Vertical");
+        KeysPress();
+        
+      
 
-        if(hori > 0.9 && vert == 0 )
+        if (directions[0] && !directions[1] && !directions[2] && !directions[3])
         {
-            transform.eulerAngles = new Vector3(0, 90, 0);
+            transform.eulerAngles = new Vector3(0, 270, 0);
         }
-        else if (hori > 0.9 && vert > 0.9)
-        {
-            transform.eulerAngles = new Vector3(00, 45, 0);
-        }
-        else if (hori == 0 && vert > 0.9)
+        else if (!directions[0] && directions[1] && !directions[2] && !directions[3])
         {
             transform.eulerAngles = new Vector3(0, 0, 0);
         }
-        else if (hori < -0.9 && vert > 0.9)
+        else if (!directions[0] && !directions[1] && directions[2] && !directions[3])
+        {
+            transform.eulerAngles = new Vector3(0, 90, 0);
+        }
+        else if (!directions[0] && !directions[1] && !directions[2] && directions[3])
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }
+        else if (directions[0] && directions[1] && !directions[2] && !directions[3])
         {
             transform.eulerAngles = new Vector3(0, 315, 0);
         }
-        else if (hori < -0.9 && vert == 0)
+        else if (!directions[0] && directions[1] && directions[2] && !directions[3])
         {
-            transform.eulerAngles = new Vector3(0, 270, 0);
-
+            transform.eulerAngles = new Vector3(0, 45, 0);
         }
-        else if (hori < -0.9 && vert < -0.9)
-        {
-            transform.eulerAngles = new Vector3(0, 235, 0);
-
-        }
-        else if (hori == 0 && vert < 0)
-        {
-            transform.eulerAngles = new Vector3(0, 180, 0);
-
-        }
-        else if (hori > 0 && vert < 0)
+        else if (!directions[0] && !directions[1] && directions[2] && directions[3])
         {
             transform.eulerAngles = new Vector3(0, 135, 0);
-
         }
-        if (Mathf.Abs(hori) > 0.9 || Mathf.Abs(vert) > 0.9)
+        else if (directions[0] && !directions[1] && !directions[2] && directions[3])
+        {
+            transform.eulerAngles = new Vector3(0, 225, 0);
+        }
+
+
+        if (run)
         {
             transform.Translate(0, 0, velocidad * Time.deltaTime);
-
         }
 
 
+    }
+    void KeysPress()
+    {
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            directions[0] = true;
+        }
+        else
+        {
+            directions[0] = false;
+        }
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        {
+            directions[1] = true;
+        }
+        else
+        {
+            directions[1] = false;
+        }
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            directions[2] = true;
+        }
+        else
+        {
+            directions[2] = false;
+        }
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        {
+            directions[3] = true;
+        }
+        else
+        {
+            directions[3] = false;
+        }
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)){
+            run = true;
+        }
+        else
+        {
+            run = false;
+        }
     }
 }
