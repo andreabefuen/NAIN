@@ -244,13 +244,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5b1d61e7b84a9e40b41afb038c3639a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartPosition: {fileID: 135446477}
-  WallMask:
+  unwalkableMask:
     serializedVersion: 2
     m_Bits: 2048
-  gridWorldSize: {x: 200, y: 220}
-  nodeRadius: 2
-  Distance: 0
+  gridWorldSize: {x: 244.7, y: 264.07}
+  nodeRadius: 1
 --- !u!114 &990983628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,8 +260,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92e90c56eb7d4d24cab79a8063a101e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartPosition: {fileID: 1071550952}
-  TargetPosition: {fileID: 573037043}
+  seeker: {fileID: 573037043}
+  target: {fileID: 1071550952}
 --- !u!1001 &1071550946
 Prefab:
   m_ObjectHideFlags: 0
@@ -335,6 +333,36 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 6.19
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &1071550949
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1071550947}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1071550950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1071550947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdf3e5333a84e7c4cae9c90675fd9fc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grid: {fileID: 990983627}
+  reachDistance: 1
+  target: {fileID: 573037043}
+  speed: 0.0003
 --- !u!4 &1071550952 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4724723871965454, guid: 305639481107da54fad8add14c455074,

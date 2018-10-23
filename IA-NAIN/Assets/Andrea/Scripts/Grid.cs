@@ -4,142 +4,90 @@ using UnityEngine;
 
 public class Grid : MonoBehaviour {
 
-    public Transform StartPosition;
-    public LayerMask WallMask;
-    public Vector2 gridWorldSize;
-    public float nodeRadius;
-    public float Distance;
-
-    Nodo[,] grid;
-    public List<Nodo> FinalPath;
+    public LayerMask unwalkableMask; //Walls and obstacles
+    public Vector2 gridWorldSize; //Size for the grid
+    public float nodeRadius; //size of the node
+    Nodo[,] grid; //Matrix of nodes for the grid 
 
     float nodeDiameter;
     int gridSizeX, gridSizeY;
 
-
-	// Use this for initialization
-	void Start () {
-
+    void Awake()
+    {
         nodeDiameter = nodeRadius * 2;
+        //Dependiendo del tamaño de los nodos y el tamaño del grid en el mundo, crearemos el tamaño del grid
         gridSizeX = Mathf.RoundToInt(gridWorldSize.x / nodeDiameter);
         gridSizeY = Mathf.RoundToInt(gridWorldSize.y / nodeDiameter);
         CreateGrid();
     }
-	
 
-
-    private void CreateGrid()
+    void CreateGrid()
     {
         grid = new Nodo[gridSizeX, gridSizeY];
-        Vector3 bottomLeft = transform.position - Vector3.right * gridWorldSize.x / 2 - Vector3.forward * gridWorldSize.y / 2;
+        Vector3 worldBottomLeft = transform.position - Vector3.right * gridWorldSize.x / 2 - Vector3.forward * gridWorldSize.y / 2;
 
-        for(int x = 0; x < gridSizeX; x++)
+        for (int x = 0; x < gridSizeX; x++)
         {
-            for(int y = 0; y< gridSizeY; y++)
+            for (int y = 0; y < gridSizeY; y++)
             {
+                Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.forward * (y * nodeDiameter + nodeRadius);
+                bool walkable = !(Physics.CheckSphere(worldPoint, nodeRadius, unwalkableMask));
+                grid[x, y] = new Nodo(walkable, worldPoint, x, y);
+            }
+        }
+    }
 
-                Vector3 worldPoint = bottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.forward * (y * nodeDiameter + nodeRadius);
-                bool Wall = true;
+    public List<Nodo> GetNeighbours(Nodo node)
+    {
+        List<Nodo> neighbours = new List<Nodo>();
 
+        for (int x = -1; x <= 1; x++)
+        {
+            for (int y = -1; y <= 1; y++)
+            {
+                if (x == 0 && y == 0)
+                    continue;
 
-                if(Physics.CheckSphere(worldPoint, nodeRadius, WallMask))
+                int checkX = node.gridX + x;
+                int checkY = node.gridY + y;
+
+                if (checkX >= 0 && checkX < gridSizeX && checkY >= 0 && checkY < gridSizeY)
                 {
-                    Wall = false;
+                    neighbours.Add(grid[checkX, checkY]);
                 }
-
-                grid[x, y] = new Nodo(Wall, worldPoint, x, y);
             }
-
         }
 
-
+        return neighbours;
     }
 
 
-    public Nodo NodeFromWorldPosition(Vector3 a_WorldPosition)
+    public Nodo NodeFromWorldPoint(Vector3 worldPosition)
     {
-        float xpoint = ((a_WorldPosition.x * gridWorldSize.x / 2) / gridWorldSize.x);
-        float ypoint = ((a_WorldPosition.z * gridWorldSize.y / 2) / gridWorldSize.y);
+        float percentX = (worldPosition.x + gridWorldSize.x / 2) / gridWorldSize.x;
+        float percentY = (worldPosition.z + gridWorldSize.y / 2) / gridWorldSize.y;
+        percentX = Mathf.Clamp01(percentX);
+        percentY = Mathf.Clamp01(percentY);
 
-
-        xpoint = Mathf.Clamp01(xpoint);
-        ypoint = Mathf.Clamp01(ypoint);
-
-        int x = Mathf.RoundToInt((gridSizeX - 1) * xpoint);
-        int y = Mathf.RoundToInt((gridSizeY - 1) * ypoint);
-
+        int x = Mathf.RoundToInt((gridSizeX - 1) * percentX);
+        int y = Mathf.RoundToInt((gridSizeY - 1) * percentY);
         return grid[x, y];
-
     }
 
-    public List<Nodo> GetNeighboringNodes(Nodo a_Node)
+    public List<Nodo> path;
+
+
+    //Auxiliar function for see all the nodes in the grid
+    void OnDrawGizmos()
     {
-        List<Nodo> NeighboringNodes = new List<Nodo>();
-        int xCheck;
-        int yCheck;
+        Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, 1, gridWorldSize.y));
 
-        //Right side
-        xCheck = a_Node.gridX + 1;
-        yCheck = a_Node.gridY;
-
-        if(xCheck >= 0 && xCheck < gridSizeX)
+        if (grid != null)
         {
-            if (yCheck >= 0 && yCheck < gridSizeY)
+            foreach (Nodo n in grid)
             {
-                NeighboringNodes.Add(grid[xCheck, yCheck]);
-            }
-        }
 
-        //Left side
-        xCheck = a_Node.gridX - 1;
-        yCheck = a_Node.gridY;
-
-        if (xCheck >= 0 && xCheck < gridSizeX)
-        {
-            if (yCheck >= 0 && yCheck < gridSizeY)
-            {
-                NeighboringNodes.Add(grid[xCheck, yCheck]);
-            }
-        }
-
-        //Top side
-        xCheck = a_Node.gridX;
-        yCheck = a_Node.gridY+1;
-
-        if (xCheck >= 0 && xCheck < gridSizeX)
-        {
-            if (yCheck >= 0 && yCheck < gridSizeY)
-            {
-                NeighboringNodes.Add(grid[xCheck, yCheck]);
-            }
-        }
-
-        //Bottom side
-        xCheck = a_Node.gridX;
-        yCheck = a_Node.gridY - 1;
-
-        if (xCheck >= 0 && xCheck < gridSizeX)
-        {
-            if (yCheck >= 0 && yCheck < gridSizeY)
-            {
-                NeighboringNodes.Add(grid[xCheck, yCheck]);
-            }
-        }
-
-        return NeighboringNodes;
-
-    }
-
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, 0, gridWorldSize.y));
-
-        if(grid!= null)
-        {
-            foreach ( Nodo node in grid)
-            {
-                if (node.IsWall)
+                if (n.IsWall)
                 {
                     Gizmos.color = Color.white;
                 }
@@ -147,19 +95,17 @@ public class Grid : MonoBehaviour {
                 {
                     Gizmos.color = Color.yellow;
                 }
-
-                if(FinalPath != null)
-                {
-                    Gizmos.color = Color.red;
-                }
-
-                Gizmos.DrawCube(node.Position, Vector3.one * (nodeDiameter - Distance));
+                //Gizmos.color = (n.walkable) ? Color.white : Color.red;
+                if (path != null)
+                    if (path.Contains(n))
+                        Gizmos.color = Color.black;
+                Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter - .1f));
             }
         }
     }
 
-    // Update is called once per frame
-    void Update () {
-		
-	}
+    public List<Nodo> GetPath()
+    {
+        return path;
+    }
 }
