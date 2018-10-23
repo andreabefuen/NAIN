@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovementMarcos : MonoBehaviour {
+public class PlayerMovementMarcos: MonoBehaviour {
 	private Rigidbody rb;
 	private float velocidad;
 	// Use this for initialization
