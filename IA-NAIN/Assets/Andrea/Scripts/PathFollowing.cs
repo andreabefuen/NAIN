@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PathFollowing : MonoBehaviour {
 
-    public Grid grid;
+   // public Grid grid;
+    Pathfinding pathfinding;
 
     public float reachDistance;
 
@@ -37,6 +38,8 @@ public class PathFollowing : MonoBehaviour {
 
         enemyRigidbody = GetComponent<Rigidbody>();
 
+        pathfinding = GetComponent<Pathfinding>();
+
         queuePath = new Queue<Nodo>();
 
        Invoke("PathFollowingTo", 5);
@@ -45,10 +48,10 @@ public class PathFollowing : MonoBehaviour {
     void PathFollowingTo()
     {
 
-        Debug.Log("Se inicia");
+        //Debug.Log("Se inicia");
 
-        
-        pathToFollow = grid.path;
+
+        pathToFollow = pathfinding.pathPublic;
         //pathToFollow.Reverse();
 
         queuePath.Clear();
@@ -117,12 +120,12 @@ public class PathFollowing : MonoBehaviour {
                 queuePath.Dequeue();
             }
         }
-        /*
+        
         if(queuePath.Count == 0)
         {
-            PathFollowingTo();
+            Invoke("PathFollowingTo", 5);
         }
-        */
+        
 
     }
 }

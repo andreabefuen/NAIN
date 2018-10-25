@@ -5,11 +5,11 @@ using UnityEngine;
 public class Pathfinding : MonoBehaviour {
 
     public Transform seeker, target;
-    Grid grid;
+    public Grid grid;
 
     void Awake()
     {
-        grid = GetComponent<Grid>();
+        //grid = GetComponent<Grid>();
     }
 
     void Update()
@@ -68,6 +68,10 @@ public class Pathfinding : MonoBehaviour {
         }
     }
 
+    public List<Nodo> pathPublic;
+
+    
+
     void RetracePath(Nodo startNode, Nodo endNode)
     {
         List<Nodo> path = new List<Nodo>();
@@ -79,6 +83,7 @@ public class Pathfinding : MonoBehaviour {
             currentNode = currentNode.parent;
         }
         path.Reverse();
+        pathPublic = path;
 
         grid.path = path;
 
