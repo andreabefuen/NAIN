@@ -18,7 +18,11 @@ public class PathFollowing : MonoBehaviour {
 
     List<Nodo> pathToFollow;
 
-    
+    Queue<Nodo> queuePath;
+    Nodo newNodo;
+    bool reachDestination;
+
+
 
 
     private void Awake()
@@ -33,106 +37,92 @@ public class PathFollowing : MonoBehaviour {
 
         enemyRigidbody = GetComponent<Rigidbody>();
 
+        queuePath = new Queue<Nodo>();
+
        Invoke("PathFollowingTo", 5);
 	}
 
     void PathFollowingTo()
     {
-        pathToFollow = grid.GetPath();
-        pathToFollow.Reverse();
 
-        Vector3 dest;
-        Vector3 offset;
-        bool withoutDestiny = true;
+        Debug.Log("Se inicia");
+
+        
+        pathToFollow = grid.path;
+        //pathToFollow.Reverse();
+
+        queuePath.Clear();
 
 
-        if (pathToFollow != null){
-            
-            foreach(Nodo n in pathToFollow)
-            {
-                while (withoutDestiny)
-                {
-                    dest = n.worldPosition;
-                    offset = dest - transform.position;
-                   
-
-                    
-
-                    if (offset.magnitude > reachDistance)
-                    {
-                        offset = offset.normalized;
-                        //Vector3.MoveTowards(transform.position, dest, 1f);
-                        transform.Translate(offset * speed  , Space.World);
-
-                        
-
-                    }
-                    else //si esta en el nodo que toca, break el while
-                    {
-                        //withoutDestiny = false;
-                        break;
-                    }
-                }
-               
-
-       
-            }
+        foreach(Nodo n in pathToFollow)
+        {
+            queuePath.Enqueue(n);
         }
+
+        WalkToANode(queuePath.Dequeue());
+
     }
 
 
-    void WalkToANode(Nodo n)
+    bool WalkToANode(Nodo n)
     {
-        movement.Set(n.worldPosition.x, 2f, n.worldPosition.z);
 
-        movement = movement.normalized * speed * Time.deltaTime;
+        Vector3 dest;
+        Vector3 offset;
+        
 
-        enemyRigidbody.MovePosition(transform.position + movement);
+        dest = n.worldPosition;
+        offset = dest - transform.position;
+
+       // Debug.Log("magnitud :" + offset.magnitude);
+
+        if(offset.magnitude > reachDistance)
+        {
+            // movement.Set(n.worldPosition.x, 2f, n.worldPosition.z);
+            //
+            // movement = movement.normalized * speed * Time.deltaTime;
+            //
+            // enemyRigidbody.MovePosition(transform.position + movement);
+
+            offset = offset.normalized;
+            //Vector3.MoveTowards(transform.position, dest, 1f);
+            transform.Translate(offset * speed * Time.deltaTime, Space.World);
+
+            return false;
+
+            
+        }
+        else
+        {
+            return true;
+        }
+
+        
     }
 	
 	// Update is called once per frame
 	void Update () {
-/*
-      pathToFollow = grid.GetPath();
-      pathToFollow.Reverse();
 
-      if (pathToFollow != null && pathToFollow.Count > 0)
+
+        
+
+        if(queuePath.Count > 0)
         {
-
-            Vector3 dest;
-            Vector3 offset;
-            bool withoutDestiny = true;
-       
-                foreach (Nodo n in pathToFollow)
-                {
-                    while (withoutDestiny)
-                    {
-                        dest = n.worldPosition;
-                        offset = dest - transform.position;
-
-
-
-                        if (offset.magnitude > reachDistance)
-                        {
-                            offset = offset.normalized;
-                            transform.Translate(offset * speed * Time.deltaTime, Space.World);
-
-
-
-                        }
-                        else //si esta en el nodo que toca, break el while
-                        {
-                            //withoutDestiny = false;
-                            break;
-                        }
-                    }
-
-
-
-                }
+            newNodo = queuePath.Peek();
             
+           // Debug.Log("Elemento en cola: " + queuePath.Count);
 
-        }*/
+            if (WalkToANode(newNodo))
+            {
+                queuePath.Dequeue();
+            }
+        }
+        /*
+        if(queuePath.Count == 0)
+        {
+            PathFollowingTo();
+        }
+        */
 
     }
 }
