@@ -1,2 +1,0 @@
-X:\Andrea y sus cosas\Universidad\ia\IA-NAIN\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
-X:\Andrea y sus cosas\Universidad\ia\IA-NAIN\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
