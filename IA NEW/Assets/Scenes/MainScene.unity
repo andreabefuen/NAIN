@@ -525,11 +525,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5649210424911410876, guid: 3cf6587ef5e5d4248aee08b2b8af7ba0,
         type: 3}
-      propertyPath: reachDistance
-      value: 3.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5649210424911410876, guid: 3cf6587ef5e5d4248aee08b2b8af7ba0,
-        type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 1532881417}
@@ -538,26 +533,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1532881417}
-    - target: {fileID: 15446303002622049, guid: 3cf6587ef5e5d4248aee08b2b8af7ba0,
-        type: 3}
-      propertyPath: seeker
-      value: 
-      objectReference: {fileID: 1501800770}
     - target: {fileID: 15446303002622049, guid: 3cf6587ef5e5d4248aee08b2b8af7ba0,
         type: 3}
       propertyPath: grid
       value: 
       objectReference: {fileID: 1320850226}
-    - target: {fileID: 5649210424911410876, guid: 3cf6587ef5e5d4248aee08b2b8af7ba0,
-        type: 3}
-      propertyPath: speed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1398748962846343652, guid: 3cf6587ef5e5d4248aee08b2b8af7ba0,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 84
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cf6587ef5e5d4248aee08b2b8af7ba0, type: 3}
 --- !u!1001 &955104764
@@ -736,60 +716,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1991639155}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1501800765 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1481567570237236, guid: 3cf6587ef5e5d4248aee08b2b8af7ba0,
-    type: 3}
-  m_PrefabInstance: {fileID: 541494612}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1501800770 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4735034242591712, guid: 3cf6587ef5e5d4248aee08b2b8af7ba0,
-    type: 3}
-  m_PrefabInstance: {fileID: 541494612}
-  m_PrefabAsset: {fileID: 0}
---- !u!136 &1501800771
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1501800765}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 2.15
-  m_Height: 10.05
-  m_Direction: 1
-  m_Center: {x: 0, y: 4.82, z: 0}
 --- !u!4 &1532881417 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4325157455602686, guid: a972d1b32b595834eb00a24ed1817e0d,
     type: 3}
   m_PrefabInstance: {fileID: 60528310}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1904491141 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1035611952154402, guid: a972d1b32b595834eb00a24ed1817e0d,
-    type: 3}
-  m_PrefabInstance: {fileID: 60528310}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &1904491145
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1904491141}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1001 &1991639155
 PrefabInstance:
   m_ObjectHideFlags: 0
