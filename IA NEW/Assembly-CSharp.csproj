@@ -82,6 +82,7 @@
     <Compile Include="Assets\Marcos\Scripts\ShootEnemy.cs" />
     <Compile Include="Assets\Marcos\Scripts\VisionLight.cs" />
     <Compile Include="Assets\Marcos\Scripts\VisionLightMelee.cs" />
+    <Compile Include="Assets\Scripts\MenuBottonManager.cs" />
     <None Include="Assets\Fonts\OFL.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>X:/Andrea y sus cosas/Universidad/ia/IA NEW/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
