@@ -32,6 +32,7 @@ public class Guard : MonoBehaviour
 
         while (true)
         {
+            transform.LookAt(targetWaypoint);
             transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, speed * Time.deltaTime);
             if (transform.position == targetWaypoint)
             {
