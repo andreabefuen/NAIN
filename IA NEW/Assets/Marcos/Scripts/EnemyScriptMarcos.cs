@@ -13,6 +13,7 @@ public class EnemyScriptMarcos : MonoBehaviour {
 	private int TimeR;
 	private float realDistance;
 	private Transform positionPlayer;
+	private bool detectedOneTime;
 
 
 	void Start()
@@ -20,6 +21,7 @@ public class EnemyScriptMarcos : MonoBehaviour {
 		ToPlayer = false;
 		RotationTime = 0;
 		TimeR = 4;
+		detectedOneTime = false;
 		player = GameObject.FindGameObjectWithTag ("Player");
 	}
 
@@ -28,29 +30,35 @@ public class EnemyScriptMarcos : MonoBehaviour {
 	{
 		realDistance=Mathf.Abs (Vector3.Distance (this.transform.position, player.transform.position));
 
-
-		//define comportamiento del enemigo segun su tamaño
+		//define comportamiento del enemigo 
 		if (ToPlayer) {
-			transform.Translate (new Vector3 (0, 0, speed * Time.deltaTime));
-		
-		} else if (RotationTime < (TimeR*60)) {
-			transform.Rotate (new Vector3 (0, 20 * Time.deltaTime));
-			RotationTime += 1;
-		} else {
-			transform.Rotate (new Vector3 (0, -20 * Time.deltaTime));
-			RotationTime += 1;
-			if (RotationTime > (TimeR*120)) {
-				RotationTime = 0;
-			}
+			transform.Translate (new Vector3 (0, 0, speed * Time.deltaTime));		
 		}
 
 		RaycastHit hit;
 		if (Physics.Raycast (transform.position, transform.forward, out hit, visionRange)) {
 			if (hit.transform.name == "Player") {
+				Debug.Log(hit.transform.name);
+
 				positionPlayer = hit.transform;
-				//Debug.Log (positionPlayer);
 				this.transform.LookAt (positionPlayer.position);
 				ToPlayer = true;
+				RotationTime = 0;
+				detectedOneTime = true;
+			}
+			else{
+
+				if (RotationTime<(TimeR*60)){
+					RotationTime += 1;
+					if(detectedOneTime){
+						this.transform.LookAt(positionPlayer.position);	
+					}
+				}
+				else{
+					ToPlayer = false;
+				}
+
+
 			}
 		}
 
@@ -58,16 +66,6 @@ public class EnemyScriptMarcos : MonoBehaviour {
 
 
 	}
-
-	/*private void OnTriggerEnter(Collider other)
-	{//si come comida crece si te come gameover
-		if (other.gameObject.tag == "Player")
-		{
-			player = other.gameObject;
-			ToPlayer = true;
-		}
-
-	}*/
 
 	public float VisionRangeGet (){
 		return visionRange;

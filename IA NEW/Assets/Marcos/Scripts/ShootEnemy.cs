@@ -7,10 +7,15 @@ public class ShootEnemy : MonoBehaviour
 	public float betweenShotsTime=5f;
 	public float distanceEP=20;
 	public float visionRange=100f;
+	public float speed=6f;
 	//public GameObject Light;
+
+	private int RotationTime;
+	private int TimeR;
+	private bool detectedOneTime;
 	private float realDistance;
 	private Transform positionPlayer;
-	private float speed=6f;
+
 	private bool pursuit = false;
 	private GameObject playerReal;
 	private float shootTime;
@@ -22,23 +27,30 @@ public class ShootEnemy : MonoBehaviour
 		//Light.active = false;
 		positionPlayer= transform;
 		pursuit = false;
+
+
+		RotationTime = 0;
+		TimeR = 4;
+		detectedOneTime = false;
 	}
 
 	void Update ()
 	{
 		realDistance=Mathf.Abs (Vector3.Distance (this.transform.position, playerReal.transform.position));
 		//Debug.Log(realDistance);
-		transform.LookAt (positionPlayer);
-		if (Mathf.Abs (Vector3.Distance (this.transform.position, positionPlayer.position)) > distanceEP) {
-			transform.Translate (new Vector3 (0, 0, speed * Time.deltaTime));
-		} else {
-			if (shootTime <= 0) {
-				Shoot ();
+		if(pursuit){
+			if (Mathf.Abs (Vector3.Distance (this.transform.position, positionPlayer.position)) > distanceEP) {
+				transform.Translate (new Vector3 (0, 0, speed * Time.deltaTime));
 			} else {
-				shootTime -= Time.deltaTime;
-			}
+				if (shootTime <= 0) {
+					Shoot ();
+				} else {
+					shootTime -= Time.deltaTime;
+				}
 
+			}
 		}
+
 		/*Light.active = false;
 		if (Input.GetButtonDown ("Fire1")) {
 			Shoot ();
@@ -50,8 +62,25 @@ public class ShootEnemy : MonoBehaviour
 				//Debug.Log (positionPlayer);
 				this.transform.LookAt(positionPlayer.position);
 				pursuit = true;
+				RotationTime = 0;
+				detectedOneTime = true;
+			}
+			else{
+
+				if (RotationTime<(TimeR*60)){
+					RotationTime += 1;
+					if(detectedOneTime){
+						this.transform.LookAt(positionPlayer.position);	
+					}
+				}
+				else{
+					pursuit = false;
+				}
+
+
 			}
 		}
+
 		
 	}
 
