@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class Guard : MonoBehaviour
 {
+	//Andrea
     public bool gizmosActivate;
     public Transform pathHolder;
 
     public float speed = 5;
     public float waitTime = 0.3f;
 
+	//Marcos
+	private EnemyScriptMarcos detectThis;
+
     private void Start()
     {
+		//Marcos
+		detectThis = this.GetComponent<EnemyScriptMarcos> ();
+
+		//Andrea
         Vector3[] waypoints = new Vector3[pathHolder.childCount];
         for (int i = 0; i < waypoints.Length; i++)
         {
@@ -32,16 +40,22 @@ public class Guard : MonoBehaviour
 
         while (true)
         {
-            transform.LookAt(targetWaypoint);
-            transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, speed * Time.deltaTime);
-            if (transform.position == targetWaypoint)
-            {
-                targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length; //Para reiniciar el contador de waypoints
-                targetWaypoint = waypoints[targetWaypointIndex];
-                targetWaypoint = waypoints[targetWaypointIndex];
-                yield return new WaitForSeconds(waitTime);
-            }
-            yield return null;
+			//If escrito por Marcos y else lo que habia originalmente de Andrea en el bucle
+			if (detectThis.GetPursuit ()) {
+				yield return null;
+			}
+			else{
+	            transform.LookAt(targetWaypoint);
+	            transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, speed * Time.deltaTime);
+	            if (transform.position == targetWaypoint)
+	            {
+	                targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length; //Para reiniciar el contador de waypoints
+	                targetWaypoint = waypoints[targetWaypointIndex];
+	                targetWaypoint = waypoints[targetWaypointIndex];
+	                yield return new WaitForSeconds(waitTime);
+	            }
+	            yield return null;
+			}
         }
     }
 
