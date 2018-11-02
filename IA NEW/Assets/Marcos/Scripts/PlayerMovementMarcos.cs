@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class PlayerMovementMarcos: MonoBehaviour {
 	private Rigidbody rb;
+    private Animator anim;
 	private float velocidad;
 	// Use this for initialization
 	void Awake () {
 		rb = GetComponent<Rigidbody> ();
+        anim = GetComponent<Animator>();
 		velocidad = 0.5f;
 		
 	}
@@ -16,14 +18,22 @@ public class PlayerMovementMarcos: MonoBehaviour {
 	void Update () {
 
 		if (Input.GetKey (KeyCode.A)) {
+            anim.SetBool("isWalking", true);
 			this.transform.Translate (Vector3.left * velocidad);
-		} if (Input.GetKey (KeyCode.D)) {
-			this.transform.Translate (Vector3.right * velocidad);
-		} if (Input.GetKey (KeyCode.W)) {
-			this.transform.Translate (Vector3.forward * velocidad);
-		} if (Input.GetKey (KeyCode.S)) {
-			this.transform.Translate (Vector3.back * velocidad);
-		} 
+		} else if (Input.GetKey (KeyCode.D)) {
+            anim.SetBool("isWalking", true);
+            this.transform.Translate (Vector3.right * velocidad);
+		} else if (Input.GetKey (KeyCode.W)) {
+            anim.SetBool("isWalking", true);
+            this.transform.Translate (Vector3.forward * velocidad);
+		}else  if (Input.GetKey (KeyCode.S)) {
+            anim.SetBool("isWalking", true);
+            this.transform.Translate (Vector3.back * velocidad);
+		}
+        else
+        {
+            anim.SetBool("isWalking", false);
+        }
 		
 	}
 }
