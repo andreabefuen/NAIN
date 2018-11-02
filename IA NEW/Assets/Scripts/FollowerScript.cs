@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RehenScriptAlex : MonoBehaviour {
+public class FollowerScript : MonoBehaviour {
 
     GameObject player;
     float speed = 6f;
     public bool ToPlayer;
-
+    Animator theAnimator;
     void Start()
     {
+        theAnimator = GetComponent<Animator>();
         ToPlayer = false;
     }
 
@@ -21,8 +22,13 @@ public class RehenScriptAlex : MonoBehaviour {
         {
             if (Mathf.Abs(Vector3.Distance(this.transform.position, player.transform.position)) > 7)
             {
+                theAnimator.SetBool("isWalking",true);
                 transform.LookAt(player.transform.position);
                 transform.Translate(new Vector3(0, 0, speed * Time.deltaTime));
+            }
+            else
+            {
+                theAnimator.SetBool("isWalking", false);
             }
         }
     }
@@ -35,5 +41,9 @@ public class RehenScriptAlex : MonoBehaviour {
             ToPlayer = true;
         }
         
+    }
+    public void Death()
+    {
+
     }
 }
