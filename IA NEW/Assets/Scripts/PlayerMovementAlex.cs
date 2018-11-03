@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class PlayerMovementAlex : MonoBehaviour {
 	private Rigidbody rb;
-	private float velocidad;
+	private float velocidad,timer;
     bool[] directions;
     bool run;
-	// Use this for initialization
-	void Awake () {
-		rb = GetComponent<Rigidbody> ();
+    public bool Dash;
+    Animator theAnimator;
+
+    // Use this for initialization
+    void Awake () {
+        theAnimator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody> ();
 		velocidad = 10f;
         directions = new bool[4];
 		run = false;
+        Dash = false;
 	}
 	
 	// Update is called once per frame
@@ -57,7 +62,18 @@ public class PlayerMovementAlex : MonoBehaviour {
 
         if (run)
         {
+            theAnimator.SetBool("isWalking", true);
             transform.Translate(0, 0, velocidad * Time.deltaTime);
+        }
+        else if(Dash)
+        {
+            timer += Time.deltaTime;
+            transform.Translate(0, 0, (velocidad*2) * Time.deltaTime);
+            if(timer >= 1)
+            {
+                Dash = false;
+            }
+
         }
 
 
@@ -103,5 +119,17 @@ public class PlayerMovementAlex : MonoBehaviour {
         {
             run = false;
         }
+        if (Input.GetKey(KeyCode.E))
+        {
+            theAnimator.SetTrigger("dash");
+            timer = 0;
+            Dash = true;
+        }
     }
+    public void Death()
+    {
+        theAnimator.SetTrigger("die");
+    }
+
+
 }

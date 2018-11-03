@@ -44,6 +44,6 @@ public class FollowerScript : MonoBehaviour {
     }
     public void Death()
     {
-
+        theAnimator.SetTrigger("die");
     }
 }
