@@ -179,8 +179,12 @@ public class PathFollowing : MonoBehaviour {
             reachDestination = true;
             anim.SetBool("isWatching", true);
             anim.SetBool("isFar", false);
-            anim.SetTrigger("punch");
-           
+            if (!isShooter)
+            {
+                anim.SetTrigger("punch");
+
+            }
+
 
         }
 

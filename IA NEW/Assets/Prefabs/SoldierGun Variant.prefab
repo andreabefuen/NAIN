@@ -416,7 +416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reachDistance: 3.2
   isShooter: 1
-  shootDistance: 4
+  shootDistance: 10
   target: {fileID: 0}
   speed: 4
 --- !u!1 &8899721022404227241
