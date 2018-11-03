@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 525ef1dd057c22743b257f51a179be90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Dash: 0
 --- !u!1001 &6399024970958634609
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58,6 +59,10 @@ PrefabInstance:
     - target: {fileID: 1309555951091016, guid: dab9a23d990edd444a8cda451b77ae17, type: 3}
       propertyPath: m_Name
       value: Jewish Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309555951091016, guid: dab9a23d990edd444a8cda451b77ae17, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dab9a23d990edd444a8cda451b77ae17, type: 3}
