@@ -57,9 +57,9 @@ public class ShootEnemy : MonoBehaviour
 		}*/
 		RaycastHit hit;
 		if (Physics.Raycast (transform.position, transform.forward, out hit, visionRange)) {
-			if (hit.transform.name == "Player") {
+			if (hit.transform.tag == "Player") {
 				positionPlayer = hit.transform;
-				//Debug.Log (positionPlayer);
+				Debug.Log (positionPlayer);
 				this.transform.LookAt(positionPlayer.position);
 				pursuit = true;
 				RotationTime = 0;
@@ -93,6 +93,12 @@ public class ShootEnemy : MonoBehaviour
 
 	public float GetRealDist(){
 		return realDistance;
+	}
+	public void SetPursuit(bool pur, Transform detec){
+		pursuit = pur;
+		positionPlayer=detec;
+		this.transform.LookAt(positionPlayer.position);
+
 	}
 
 

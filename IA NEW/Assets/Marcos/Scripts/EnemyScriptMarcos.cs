@@ -37,7 +37,7 @@ public class EnemyScriptMarcos : MonoBehaviour {
 
 		RaycastHit hit;
 		if (Physics.Raycast (transform.position, transform.forward, out hit, visionRange)) {
-			if (hit.transform.name == "Player") {
+			if (hit.transform.tag == "Player") {
 				Debug.Log(hit.transform.name);
 
 				positionPlayer = hit.transform;
@@ -76,6 +76,12 @@ public class EnemyScriptMarcos : MonoBehaviour {
 
 	public float GetRealDist(){
 		return realDistance;
+	}
+
+	public void SetPursuit(bool pur,Transform detec){
+		ToPlayer = pur;	
+		Vector3 target = new Vector3(detec.position.x,this.transform.position.y,detec.position.z);
+		this.transform.LookAt(target);
 	}
 
 }
