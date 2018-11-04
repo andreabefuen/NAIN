@@ -33,10 +33,16 @@ public class PathFollowing : MonoBehaviour {
     float initialSpeed;
 
 
+	//Añadido Marcos
+	public GameObject bulletPrefab;
+	public GameObject bulletSpawn;
+	private float timeLeft=0f;
+	private GameObject Player;
+
 
     private void Awake()
     {
-        
+		Player=GameObject.FindGameObjectWithTag ("Player");
     }
 
     
@@ -112,8 +118,17 @@ public class PathFollowing : MonoBehaviour {
                 {
                     anim.SetBool("isWatching", true);
                     anim.SetBool("isFar", false);
-                    anim.SetTrigger("shoot");
-                    Debug.Log("DISPARA");
+					if(timeLeft==0){
+						anim.SetTrigger("shoot");
+						Debug.Log("DISPARA");
+						this.Fire();
+						timeLeft=4f;
+
+					}
+					else{
+						timeLeft-=Time.deltaTime;
+					}
+	                    
                     speed = 0;
                 }
                 else
@@ -182,7 +197,15 @@ public class PathFollowing : MonoBehaviour {
             anim.SetBool("isFar", false);
             if (!isShooter)
             {
-                anim.SetTrigger("punch");
+				//Añadido por marcos para que el personaje reciba el ataque
+				var distance = Mathf.Abs (Vector3.Distance (this.transform.position, Player.transform.position));
+				Debug.Log(distance);
+				if((Mathf.Abs (Vector3.Distance (this.transform.position, Player.transform.position)))<5.5f){
+					anim.SetTrigger("punch");
+					Player.GetComponent<PlayerMovement>().Attack();
+				}
+                
+
 
             }
 
@@ -194,4 +217,11 @@ public class PathFollowing : MonoBehaviour {
         
 
     }
+
+	//Mood marcos
+	private void Fire(){
+		var bullet=(GameObject) Instantiate(bulletPrefab,bulletSpawn.transform.position,bulletSpawn.transform.rotation);
+		bullet.GetComponent<Rigidbody>().velocity=bullet.transform.forward*10;
+		Destroy(bullet,2f);
+	}
 }
