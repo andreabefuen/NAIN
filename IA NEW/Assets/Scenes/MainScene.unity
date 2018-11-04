@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1061,6 +1061,7 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       value: -59.8
 =======
 <<<<<<< HEAD
@@ -1072,6 +1073,9 @@ PrefabInstance:
 =======
       value: 17.5
 >>>>>>> parent of 31bd07a... Cambios
+=======
+      value: -59.8
+>>>>>>> parent of e9c7478... Merge branch 'master' of https://github.com/andreabefuen/NAIN
       objectReference: {fileID: 0}
     - target: {fileID: 6395695717786223787, guid: 244327e993c9c504f9c870a2f4f0f8b2,
         type: 3}
@@ -1220,7 +1224,7 @@ PrefabInstance:
     - target: {fileID: 8542141973602593763, guid: 12078d127f6a6034fa8cb75d3b252f0c,
         type: 3}
       propertyPath: gizmoActivate
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12078d127f6a6034fa8cb75d3b252f0c, type: 3}

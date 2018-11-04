@@ -2,6 +2,7 @@ sceneSetups:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 - path: Assets/Scenes/MainScene.unity
 =======
 <<<<<<< HEAD
@@ -16,5 +17,8 @@ sceneSetups:
 =======
 - path: Assets/Scenes/MainScene.unity
 >>>>>>> parent of 30edf5b... Build Scenes
+=======
+- path: Assets/Scenes/MainScene.unity
+>>>>>>> parent of e9c7478... Merge branch 'master' of https://github.com/andreabefuen/NAIN
   isLoaded: 1
   isActive: 1

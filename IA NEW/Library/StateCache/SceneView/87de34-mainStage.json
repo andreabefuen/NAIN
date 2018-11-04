@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":470.0,"y":145.54000854492188,"z":0.0},"rotation":{"x":0.059957120567560199,"y":-0.014972653239965439,"z":0.0008997920667752624,"w":0.9980883002281189},"size":268.6005554199219,"orthographic":false}
 =======
 <<<<<<< HEAD
@@ -11,3 +12,6 @@
 =======
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":64.60384368896485,"y":-7.599945068359375,"z":-53.226829528808597},"rotation":{"x":0.32336536049842837,"y":-0.14372844994068147,"z":0.04975998401641846,"w":0.9339705109596252},"size":1070.982666015625,"orthographic":false}
 >>>>>>> parent of 31bd07a... Cambios
+=======
+﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":470.0,"y":145.54000854492188,"z":0.0},"rotation":{"x":0.059957120567560199,"y":-0.014972653239965439,"z":0.0008997920667752624,"w":0.9980883002281189},"size":268.6005554199219,"orthographic":false}
+>>>>>>> parent of e9c7478... Merge branch 'master' of https://github.com/andreabefuen/NAIN
