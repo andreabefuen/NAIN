@@ -19,23 +19,19 @@ public class MetalFloor : MonoBehaviour
 		enemiesMelee = GameObject.FindGameObjectsWithTag("EnemyMelee");
 		enemiesShoot = GameObject.FindGameObjectsWithTag("EnemyShoot");
 		sound = false;
-		inTrigger = false;
+		inTrigger = true;
         
     }
 
     // Update is called once per frame
     void Update()
     {
+		//Debug.Log(sound);
 		if(sound){
-			Melee(true);
-			Range(true);
-		}
-		else{
-			
 			if(inTrigger){
-				Debug.Log("Estoy en el else");
-				Melee(false);
-				Range(false);
+				//Debug.Log(this.transform);
+				Melee(true);
+				Range(true);
 				inTrigger=false;
 			}
 		}
@@ -46,12 +42,12 @@ public class MetalFloor : MonoBehaviour
 		if (other.gameObject.tag == "Player")
 		{
 			sound = true;
-			inTrigger=true;
 		}
 	}
 
 	private void OnTriggerExit(){
 		sound = false;
+		inTrigger=true;
 	}
 
 	private void Melee(bool pursuit){
@@ -59,7 +55,7 @@ public class MetalFloor : MonoBehaviour
 			distanceEM = Mathf.Abs (Vector3.Distance (this.transform.position, enemy.transform.position));
 			if(distanceEM < SoundRange){
 				hitThis = enemy.GetComponent<EnemyScriptMarcos> ();
-				Debug.Log("Esta a rango: "+ enemy.name);
+				//Debug.Log("Esta a rango: "+ enemy.name);
 				hitThis.SetPursuit(pursuit, this.transform);
 			}
 		}
@@ -70,7 +66,7 @@ public class MetalFloor : MonoBehaviour
 			distanceEM = Mathf.Abs (Vector3.Distance (this.transform.position, enemy.transform.position));
 			if(distanceEM < SoundRange){
 				shootThis = enemy.GetComponent<ShootEnemy> ();
-				Debug.Log("Esta a rango: "+ enemy.name);
+				//Debug.Log("Esta a rango: "+ enemy.name);
 				shootThis.SetPursuit(pursuit, this.transform);
 			}
 		}

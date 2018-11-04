@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Pathfinding : MonoBehaviour {
 
-    public Transform[] target;
+    public Transform target;
     Transform seeker;
     public Grid grid;
     int indexTarget;
@@ -14,12 +14,12 @@ public class Pathfinding : MonoBehaviour {
     {
         //grid = GetComponent<Grid>();
         seeker = this.transform;
-        indexTarget = 0;
+        //indexTarget = 0;
     }
 
     void Update()
     {
-        FindPath(seeker.position, target[indexTarget].position);
+        FindPath(seeker.position, target.position);
     }
 
     void FindPath(Vector3 startPos, Vector3 targetPos)

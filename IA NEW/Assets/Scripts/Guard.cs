@@ -14,6 +14,7 @@ public class Guard : MonoBehaviour
 	//Marcos
 	private EnemyScriptMarcos detectThis;
 
+
     private void Start()
     {
 		//Marcos
@@ -37,25 +38,28 @@ public class Guard : MonoBehaviour
 
         int targetWaypointIndex = 1;
         Vector3 targetWaypoint = waypoints[targetWaypointIndex];
-
+		//bool activado=true;
         while (true)
         {
-			//If escrito por Marcos y else lo que habia originalmente de Andrea en el bucle
-			if (detectThis.GetPursuit ()) {
-				yield return null;
-			}
-			else{
-	            transform.LookAt(targetWaypoint);
-	            transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, speed * Time.deltaTime);
-	            if (transform.position == targetWaypoint)
-	            {
-	                targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length; //Para reiniciar el contador de waypoints
-	                targetWaypoint = waypoints[targetWaypointIndex];
-	                targetWaypoint = waypoints[targetWaypointIndex];
-	                yield return new WaitForSeconds(waitTime);
-	            }
-	            yield return null;
-			}
+			//if(activado){
+				//If escrito por Marcos y else lo que habia originalmente de Andrea en el bucle
+				if (detectThis.GetPursuit ()) {
+					yield return null;
+				}
+				else{
+		            transform.LookAt(targetWaypoint);
+		            transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, speed * Time.deltaTime);
+		            if (transform.position == targetWaypoint)
+		            {
+		                targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length; //Para reiniciar el contador de waypoints
+		                targetWaypoint = waypoints[targetWaypointIndex];
+		                targetWaypoint = waypoints[targetWaypointIndex];
+		                yield return new WaitForSeconds(waitTime);
+		            }
+		            yield return null;
+				}
+			/*}
+			yield return null;*/
         }
     }
 

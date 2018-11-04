@@ -134,9 +134,10 @@ public class PathFollowing : MonoBehaviour {
             }
 
              offset = offset.normalized;
-
+			//Por Marcos para que no mire para abajo
+			Vector3 objetivo=new Vector3(target.position.x,this.transform.position.y,target.position.z);
              
-             transform.LookAt(target);
+			transform.LookAt(/*target*/ objetivo);
              transform.Translate(offset * speed * Time.deltaTime, Space.World);
 
              return false;
