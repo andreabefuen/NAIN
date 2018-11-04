@@ -14,15 +14,19 @@ public class EnemyScriptMarcos : MonoBehaviour {
 	private float realDistance;
 	private Transform positionPlayer;
 	private bool detectedOneTime;
+	private PathFollowing pathInit;
+	private Pathfinding pathSearch;
 
 
 	void Start()
 	{
 		ToPlayer = false;
 		RotationTime = 0;
-		TimeR = 4;
+		TimeR = 10;
 		detectedOneTime = false;
 		player = GameObject.FindGameObjectWithTag ("Player");
+		pathInit = this.GetComponent<PathFollowing> ();
+		pathSearch= this.GetComponent<Pathfinding> ();
 	}
 
 	// Update is called once per frame
@@ -32,34 +36,37 @@ public class EnemyScriptMarcos : MonoBehaviour {
 
 		//define comportamiento del enemigo 
 		if (ToPlayer) {
-			transform.Translate (new Vector3 (0, 0, speed * Time.deltaTime));		
+			//Debug.Log(positionPlayer.position);
+			pathSearch.enabled=true;
+			pathInit.enabled=true;
+			pathSearch.target=positionPlayer;
+			pathInit.target=positionPlayer;
+					
 		}
 
 		RaycastHit hit;
 		if (Physics.Raycast (transform.position, transform.forward, out hit, visionRange)) {
 			if (hit.transform.tag == "Player") {
-				Debug.Log(hit.transform.name);
-
 				positionPlayer = hit.transform;
-				this.transform.LookAt (positionPlayer.position);
 				ToPlayer = true;
 				RotationTime = 0;
-				detectedOneTime = true;
 			}
+
 			else{
 
 				if (RotationTime<(TimeR*60)){
 					RotationTime += 1;
-					if(detectedOneTime){
-						this.transform.LookAt(positionPlayer.position);	
-					}
+
 				}
 				else{
 					ToPlayer = false;
+					pathSearch.enabled=false;
+					pathInit.enabled=false;
+
 				}
-
-
 			}
+//
+//
 		}
 
 
@@ -81,7 +88,10 @@ public class EnemyScriptMarcos : MonoBehaviour {
 	public void SetPursuit(bool pur,Transform detec){
 		ToPlayer = pur;	
 		Vector3 target = new Vector3(detec.position.x,this.transform.position.y,detec.position.z);
-		this.transform.LookAt(target);
+		Debug.Log("Antes del detec: "+detec.position);
+		positionPlayer = detec;
+		//Debug.Log("Después del detec: "+positionPlayer.position);
+		//this.transform.LookAt(target);
 	}
 
 }

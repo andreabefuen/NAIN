@@ -19,6 +19,8 @@ public class ShootEnemy : MonoBehaviour
 	private bool pursuit = false;
 	private GameObject playerReal;
 	private float shootTime;
+	private PathFollowing pathInit;
+	private Pathfinding pathSearch;
 
 	void Awake ()
 	{
@@ -32,6 +34,8 @@ public class ShootEnemy : MonoBehaviour
 		RotationTime = 0;
 		TimeR = 4;
 		detectedOneTime = false;
+		pathInit = this.GetComponent<PathFollowing> ();
+		pathSearch= this.GetComponent<Pathfinding> ();
 	}
 
 	void Update ()
@@ -39,9 +43,15 @@ public class ShootEnemy : MonoBehaviour
 		realDistance=Mathf.Abs (Vector3.Distance (this.transform.position, playerReal.transform.position));
 		//Debug.Log(realDistance);
 		if(pursuit){
+
+			pathSearch.enabled=true;
+			pathInit.enabled=true;
+			pathSearch.target=positionPlayer;
+			pathInit.target=positionPlayer;
 			if (Mathf.Abs (Vector3.Distance (this.transform.position, positionPlayer.position)) > distanceEP) {
-				transform.Translate (new Vector3 (0, 0, speed * Time.deltaTime));
+				
 			} else {
+				
 				if (shootTime <= 0) {
 					Shoot ();
 				} else {
@@ -51,30 +61,23 @@ public class ShootEnemy : MonoBehaviour
 			}
 		}
 
-		/*Light.active = false;
-		if (Input.GetButtonDown ("Fire1")) {
-			Shoot ();
-		}*/
+
 		RaycastHit hit;
 		if (Physics.Raycast (transform.position, transform.forward, out hit, visionRange)) {
 			if (hit.transform.tag == "Player") {
 				positionPlayer = hit.transform;
-				Debug.Log (positionPlayer);
-				this.transform.LookAt(positionPlayer.position);
 				pursuit = true;
 				RotationTime = 0;
-				detectedOneTime = true;
 			}
 			else{
 
 				if (RotationTime<(TimeR*60)){
 					RotationTime += 1;
-					if(detectedOneTime){
-						this.transform.LookAt(positionPlayer.position);	
-					}
 				}
 				else{
 					pursuit = false;
+					pathSearch.enabled=false;
+					pathInit.enabled=false;
 				}
 
 
@@ -96,8 +99,11 @@ public class ShootEnemy : MonoBehaviour
 	}
 	public void SetPursuit(bool pur, Transform detec){
 		pursuit = pur;
-		positionPlayer=detec;
-		this.transform.LookAt(positionPlayer.position);
+		Vector3 target = new Vector3(detec.position.x,this.transform.position.y,detec.position.z);
+		Debug.Log("Antes del detec: "+detec);
+		positionPlayer = detec;
+		//Debug.Log("Después del detec: "+positionPlayer.position);
+		this.transform.LookAt(target);
 
 	}
 
