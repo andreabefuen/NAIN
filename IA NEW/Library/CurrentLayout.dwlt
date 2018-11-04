@@ -73,7 +73,7 @@ MonoBehaviour:
   m_MinSize: {x: 277, y: 298}
   m_MaxSize: {x: 4002, y: 8048}
   vertical: 1
-  controlID: 134
+  controlID: 147
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 498}
   m_MaxSize: {x: 14004, y: 14048}
   vertical: 0
-  controlID: 133
+  controlID: 146
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -433,9 +433,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 1ef9ffff
-      m_LastClickedID: -1762
-      m_ExpandedIDs: a0fbffff
+      m_SelectedIDs: 220c0000
+      m_LastClickedID: 0
+      m_ExpandedIDs: e695ffff62a2ffffd8a7ffffe6cffffff2cfffff24d0fffff6f4ffff36f5ffff30f7ffffd4fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -490,9 +490,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -33.73754, y: -59.058647, z: 21.891495}
+    m_Target: {x: 21.7, y: -7.0099998, z: -19.850948}
     speed: 2
-    m_Value: {x: -33.73754, y: -59.058647, z: 21.891495}
+    m_Value: {x: 21.7, y: -7.0099998, z: -19.850948}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -520,13 +520,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.27865815, y: 0.36434004, z: -0.1152278, w: -0.88109505}
+    m_Target: {x: 0.13872436, y: -0.8032654, z: 0.20579702, w: 0.54144984}
     speed: 2
-    m_Value: {x: -0.27865815, y: 0.36434004, z: -0.1152278, w: -0.88109505}
+    m_Value: {x: 0.13872436, y: -0.8032654, z: 0.20579702, w: 0.54144984}
   m_Size:
-    m_Target: 249.58575
+    m_Target: 120.564514
     speed: 2
-    m_Value: 249.58575
+    m_Value: 120.564514
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -662,10 +662,10 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: d2d354e83a4c7ee439e82f479ddc513e,
+  m_AnimatorController: {fileID: 9100000, guid: 71a7e3534e789ec4091a09fb455b4419,
     type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: 1107798041174513702, guid: d2d354e83a4c7ee439e82f479ddc513e,
+  - m_Target: {fileID: 1107094052672854008, guid: 71a7e3534e789ec4091a09fb455b4419,
       type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
@@ -717,20 +717,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Vero/Characters/SoldierGun-Animations
+    - Assets/Scenes
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Vero/Characters/SoldierGun-Animations
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: X:\Andrea y sus cosas\Universidad\ia\IA NEW
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 178}
-    m_SelectedIDs: e6280000
-    m_LastClickedID: 10470
-    m_ExpandedIDs: 000000004226000060260000182700002c270000722700008e28000000ca9a3b
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 7e0a0000
+    m_LastClickedID: 2686
+    m_ExpandedIDs: 0000000096090000800a0000c60a0000e20b000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -758,7 +758,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000004226000060260000182700002c270000722700008e280000
+    m_ExpandedIDs: 0000000096090000b40900006c0a0000800a0000c60a0000e20b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -785,7 +785,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000200c00000000000034270000dc300000
     m_RenameOverlay:
       m_UserAcceptedRename: 0

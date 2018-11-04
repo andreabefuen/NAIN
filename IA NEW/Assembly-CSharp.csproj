@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\Grid.cs" />
     <Compile Include="Assets\Scripts\Guard.cs" />
     <Compile Include="Assets\Scripts\MenuBottonManager.cs" />
+    <Compile Include="Assets\Scripts\MetalFloor.cs" />
     <Compile Include="Assets\Scripts\Nodo.cs" />
     <Compile Include="Assets\Scripts\Pathfinding.cs" />
     <Compile Include="Assets\Scripts\PathFollowing.cs" />
