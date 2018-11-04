@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 548}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -385,7 +385,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: e0ecfffffcedffff10eeffff12eeffff
+      m_ExpandedIDs: 5ee7ffff42ebffffa2ebffff1eefffff08f3ffff30f6ffff84fbffff363d0000a43d0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -440,9 +440,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -49.774807, y: 3, z: -80.54}
+    m_Target: {x: 64.60384, y: -7.599945, z: -53.22683}
     speed: 2
-    m_Value: {x: -49.774807, y: 3, z: -80.54}
+    m_Value: {x: 64.60384, y: -7.599945, z: -53.22683}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -474,9 +474,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0.32336536, y: -0.14372845, z: 0.049759984, w: 0.9339705}
   m_Size:
-    m_Target: 16.022251
+    m_Target: 1070.9827
     speed: 2
-    m_Value: 16.022251
+    m_Value: 1070.9827
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -667,20 +667,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Marcos/Scripts
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Marcos/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Alex\Documents\GitHub\NAIN\IA NEW
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: a8330000
-    m_LastClickedID: 13224
-    m_ExpandedIDs: 00000000a8330000ca3300007234000088340000ca3400009e35000000ca9a3b
+    m_SelectedIDs: 382b0000
+    m_LastClickedID: 11064
+    m_ExpandedIDs: 00000000ec2700000e280000c8280000de280000242900003e2a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -708,7 +708,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000a833000088340000ca3400009e350000
+    m_ExpandedIDs: 00000000ec2700000e280000c8280000de280000242900003e2a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

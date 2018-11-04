@@ -6,8 +6,11 @@ public class FollowerScript : MonoBehaviour {
 
     GameObject player;
     float speed = 6f;
-    public bool ToPlayer;
+    public bool ToPlayer, free;
     Animator theAnimator;
+    float visionRange = 40f;
+    private Transform positionPlayer;
+
     void Start()
     {
         theAnimator = GetComponent<Animator>();
@@ -20,15 +23,33 @@ public class FollowerScript : MonoBehaviour {
         //define comportamiento del enemigo segun su tamaño
         if (ToPlayer)
         {
-            if (Mathf.Abs(Vector3.Distance(this.transform.position, player.transform.position)) > 7)
+            if (Mathf.Abs(Vector3.Distance(this.transform.position, positionPlayer)) > 7)
             {
-                theAnimator.SetBool("isWalking",true);
-                transform.LookAt(player.transform.position);
+                v transform.LookAt(positionPlayer);
                 transform.Translate(new Vector3(0, 0, speed * Time.deltaTime));
             }
             else
             {
                 theAnimator.SetBool("isWalking", false);
+            }
+        }
+        if (free) { 
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, player.transform, out hit, visionRange))
+            {
+                if (hit.transform.tag == "Player")
+                {
+                    positionPlayer = hit.transform;
+                    ToPlayer = true;
+                }
+
+                else
+                {
+                    theAnimator.SetBool("isWalking", false);
+                    ToPlayer = false;
+
+                }
+
             }
         }
     }
@@ -39,6 +60,7 @@ public class FollowerScript : MonoBehaviour {
         {
             player = other.gameObject;
             ToPlayer = true;
+            free = true;
         }
         
     }
