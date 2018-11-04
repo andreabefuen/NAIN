@@ -132,12 +132,13 @@ public class PathFollowing : MonoBehaviour {
                 anim.SetBool("isFar", true);
                 speed = initialSpeed;
             }
-
-             offset = offset.normalized;
+            offset.y = 0f; 
+            offset = offset.normalized;
 			//Por Marcos para que no mire para abajo
 			Vector3 objetivo=new Vector3(target.position.x,this.transform.position.y,target.position.z);
              
 			transform.LookAt(/*target*/ objetivo);
+            
              transform.Translate(offset * speed * Time.deltaTime, Space.World);
 
              return false;
@@ -188,8 +189,8 @@ public class PathFollowing : MonoBehaviour {
 
 
         }
-
-        Invoke("PathFollowingTo", 1);
+        PathFollowingTo();
+        //Invoke("PathFollowingTo", 1);
         
         
 
