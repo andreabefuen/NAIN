@@ -1,6 +1,7 @@
 sceneSetups:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 - path: Assets/Scenes/MainScene.unity
 =======
 <<<<<<< HEAD
@@ -12,5 +13,8 @@ sceneSetups:
 =======
 - path: Assets/Scenes/Menu.unity
 >>>>>>> parent of 31bd07a... Cambios
+=======
+- path: Assets/Scenes/MainScene.unity
+>>>>>>> parent of 30edf5b... Build Scenes
   isLoaded: 1
   isActive: 1
