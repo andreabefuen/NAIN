@@ -541,34 +541,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 9.94
       objectReference: {fileID: 0}
-    - target: {fileID: 65513359807396396, guid: 46771dc9ba9ae0e47a3e620dc6ef563f,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 65596867621994958, guid: 46771dc9ba9ae0e47a3e620dc6ef563f,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 65513359807396396, guid: 46771dc9ba9ae0e47a3e620dc6ef563f,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 1.450386
-      objectReference: {fileID: 0}
-    - target: {fileID: 65513359807396396, guid: 46771dc9ba9ae0e47a3e620dc6ef563f,
-        type: 3}
-      propertyPath: m_Center.x
-      value: 0.22519302
-      objectReference: {fileID: 0}
-    - target: {fileID: 4839346030209280, guid: 46771dc9ba9ae0e47a3e620dc6ef563f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -49.07
-      objectReference: {fileID: 0}
-    - target: {fileID: 4077718224589938, guid: 46771dc9ba9ae0e47a3e620dc6ef563f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -49.07
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46771dc9ba9ae0e47a3e620dc6ef563f, type: 3}
 --- !u!1 &289284079
@@ -1049,7 +1021,7 @@ PrefabInstance:
     - target: {fileID: 6395695717786223787, guid: 244327e993c9c504f9c870a2f4f0f8b2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -37.7
+      value: 93.7
       objectReference: {fileID: 0}
     - target: {fileID: 6395695717786223787, guid: 244327e993c9c504f9c870a2f4f0f8b2,
         type: 3}
@@ -1059,23 +1031,7 @@ PrefabInstance:
     - target: {fileID: 6395695717786223787, guid: 244327e993c9c504f9c870a2f4f0f8b2,
         type: 3}
       propertyPath: m_LocalPosition.z
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-      value: -59.8
-=======
-<<<<<<< HEAD
-      value: -21.88
-=======
-      value: 17.5
->>>>>>> 30edf5b8bddbb1f4e809d6d933a51365958dfbc0
->>>>>>> 6285a94ebed73d3682de4416250da428ebf8a6cf
-=======
-      value: 17.5
->>>>>>> parent of 31bd07a... Cambios
-=======
-      value: -59.8
->>>>>>> parent of e9c7478... Merge branch 'master' of https://github.com/andreabefuen/NAIN
+      value: -16.14
       objectReference: {fileID: 0}
     - target: {fileID: 6395695717786223787, guid: 244327e993c9c504f9c870a2f4f0f8b2,
         type: 3}
@@ -1125,26 +1081,6 @@ PrefabInstance:
     - target: {fileID: 1170854890001812223, guid: 244327e993c9c504f9c870a2f4f0f8b2,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 734474668227543208, guid: 244327e993c9c504f9c870a2f4f0f8b2,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7598675482043383184, guid: 244327e993c9c504f9c870a2f4f0f8b2,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3041115986419320771, guid: 244327e993c9c504f9c870a2f4f0f8b2,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 734474668227543208, guid: 244327e993c9c504f9c870a2f4f0f8b2,
-        type: 3}
-      propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
