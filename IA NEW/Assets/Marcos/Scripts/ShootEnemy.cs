@@ -42,6 +42,10 @@ public class ShootEnemy : MonoBehaviour
 	{
 		realDistance=Mathf.Abs (Vector3.Distance (this.transform.position, playerReal.transform.position));
 		//Debug.Log(realDistance);
+		if(realDistance<15f){
+			pursuit=true;
+			positionPlayer=playerReal.transform;
+		}
 		if(pursuit){
 
 			pathSearch.enabled=true;

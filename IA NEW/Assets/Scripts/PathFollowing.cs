@@ -118,7 +118,7 @@ public class PathFollowing : MonoBehaviour {
                 {
                     anim.SetBool("isWatching", true);
                     anim.SetBool("isFar", false);
-					if(timeLeft==0){
+					if(timeLeft<=0){
 						anim.SetTrigger("shoot");
 						Debug.Log("DISPARA");
 						this.Fire();
@@ -126,7 +126,7 @@ public class PathFollowing : MonoBehaviour {
 
 					}
 					else{
-						timeLeft-=Time.deltaTime;
+						
 					}
 	                    
                     speed = 0;
@@ -148,6 +148,7 @@ public class PathFollowing : MonoBehaviour {
                 speed = initialSpeed;
             }
 
+			offset.y=0f;
              offset = offset.normalized;
 			//Por Marcos para que no mire para abajo
 			Vector3 objetivo=new Vector3(target.position.x,this.transform.position.y,target.position.z);
@@ -176,7 +177,7 @@ public class PathFollowing : MonoBehaviour {
 	void Update () {
 
         
-        
+		if(timeLeft>0f){timeLeft-=Time.deltaTime;}
 
         if(queuePath.Count > 0)
         {

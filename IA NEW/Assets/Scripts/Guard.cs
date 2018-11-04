@@ -13,6 +13,7 @@ public class Guard : MonoBehaviour
 
 	//Marcos
 	private EnemyScriptMarcos detectThis;
+	public int IndexWay=0;
 
 
     private void Start()
@@ -34,9 +35,10 @@ public class Guard : MonoBehaviour
 
     IEnumerator FollowPath(Vector3[] waypoints)
     {
-        transform.position = waypoints[0];
+		//IndexWay antes 0 y +1 antes 1
+        transform.position = waypoints[IndexWay];
 
-        int targetWaypointIndex = 1;
+        int targetWaypointIndex = IndexWay+1;
         Vector3 targetWaypoint = waypoints[targetWaypointIndex];
 		//bool activado=true;
         while (true)

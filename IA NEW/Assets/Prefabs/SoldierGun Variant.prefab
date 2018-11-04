@@ -324,11 +324,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8901382657677605227}
   - component: {fileID: 8850192872506777955}
-  - component: {fileID: 5427867631613647691}
-  - component: {fileID: 7116760682133260931}
   - component: {fileID: 141563036}
   - component: {fileID: 141563037}
   - component: {fileID: 141563038}
+  - component: {fileID: 4376456356337645295}
+  - component: {fileID: 8772153310393202988}
   m_Layer: 0
   m_Name: SoldierGun Variant
   m_TagString: Untagged
@@ -373,35 +373,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5427867631613647691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8899325205238054413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 786e410713563dd4e8c25cf48fd378d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  betweenShotsTime: 5
-  distanceEP: 20
-  visionRange: 100
-  speed: 6
---- !u!114 &7116760682133260931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8899325205238054413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0066d2b79a8d2b04096cd63616740228, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 300
 --- !u!114 &141563036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,6 +389,7 @@ MonoBehaviour:
   pathHolder: {fileID: 0}
   speed: 5
   waitTime: 0.3
+  IndexWay: 0
 --- !u!114 &141563037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,6 +424,33 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5723802274994685274, guid: b27fa5a7263c71249b3f9ddfbfc4ffc8,
     type: 3}
   bulletSpawn: {fileID: 8203794474617729803}
+--- !u!114 &4376456356337645295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8899325205238054413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6ad9dad9baeebf4981661659e7d381c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ToPlayer: 0
+  visionRange: 20
+--- !u!114 &8772153310393202988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8899325205238054413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5af533513916646b6edabb94255222, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 300
 --- !u!1 &8899721022404227241
 GameObject:
   m_ObjectHideFlags: 0

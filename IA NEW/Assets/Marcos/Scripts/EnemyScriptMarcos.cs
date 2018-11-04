@@ -33,7 +33,10 @@ public class EnemyScriptMarcos : MonoBehaviour {
 	void Update()
 	{
 		realDistance=Mathf.Abs (Vector3.Distance (this.transform.position, player.transform.position));
-
+		if (realDistance<15f){
+			ToPlayer=true;
+			positionPlayer=player.transform;
+		}
 		//define comportamiento del enemigo 
 		if (ToPlayer) {
 			//Debug.Log(positionPlayer.position);
