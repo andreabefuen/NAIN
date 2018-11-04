@@ -657,6 +657,7 @@
     <Compile Include="Assets\Marcos\Scripts\VisionLight.cs" />
     <Compile Include="Assets\Marcos\Scripts\VisionLightMelee.cs" />
     <Compile Include="Assets\Scripts\CameraScriptAlex.cs" />
+    <Compile Include="Assets\Scripts\ExitScript.cs" />
     <Compile Include="Assets\Scripts\FollowerScript.cs" />
     <Compile Include="Assets\Scripts\Grid.cs" />
     <Compile Include="Assets\Scripts\Guard.cs" />
@@ -666,6 +667,7 @@
     <Compile Include="Assets\Scripts\Pathfinding.cs" />
     <Compile Include="Assets\Scripts\PathFollowing.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\TimerScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Fonts\OFL.txt" />

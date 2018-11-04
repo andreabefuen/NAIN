@@ -1,24 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 - path: Assets/Scenes/MainScene.unity
-=======
-<<<<<<< HEAD
-- path: Assets/Scenes/Level02.unity
-=======
-- path: Assets/Scenes/Menu.unity
->>>>>>> 30edf5b8bddbb1f4e809d6d933a51365958dfbc0
->>>>>>> 6285a94ebed73d3682de4416250da428ebf8a6cf
-=======
-- path: Assets/Scenes/Menu.unity
->>>>>>> parent of 31bd07a... Cambios
-=======
-- path: Assets/Scenes/MainScene.unity
->>>>>>> parent of 30edf5b... Build Scenes
-=======
-- path: Assets/Scenes/MainScene.unity
->>>>>>> parent of e9c7478... Merge branch 'master' of https://github.com/andreabefuen/NAIN
   isLoaded: 1
   isActive: 1
