@@ -22,10 +22,14 @@ MonoBehaviour:
   m_Title: 
 <<<<<<< HEAD
   m_RootView: {fileID: 2}
+<<<<<<< HEAD
 =======
   m_RootView: {fileID: 4}
 >>>>>>> 6285a94ebed73d3682de4416250da428ebf8a6cf
   m_MinSize: {x: 950, y: 548}
+=======
+  m_MinSize: {x: 950, y: 300}
+>>>>>>> parent of 31bd07a... Cambios
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -167,10 +171,10 @@ MonoBehaviour:
     width: 1904
 <<<<<<< HEAD
     height: 932
-  m_MinSize: {x: 681, y: 498}
+  m_MinSize: {x: 683, y: 498}
   m_MaxSize: {x: 14004, y: 14048}
   vertical: 0
-  controlID: 131
+  controlID: 64
 --- !u!114 &6
 =======
     height: 929
@@ -201,10 +205,10 @@ MonoBehaviour:
     width: 1349
 <<<<<<< HEAD
     height: 932
-  m_MinSize: {x: 404, y: 498}
+  m_MinSize: {x: 406, y: 498}
   m_MaxSize: {x: 10002, y: 14048}
   vertical: 1
-  controlID: 85
+  controlID: 65
 --- !u!114 &7
 =======
     height: 929
@@ -235,10 +239,10 @@ MonoBehaviour:
     width: 1349
 <<<<<<< HEAD
     height: 420
-  m_MinSize: {x: 404, y: 224}
-  m_MaxSize: {x: 8004, y: 4024}
+  m_MinSize: {x: 406, y: 224}
+  m_MaxSize: {x: 8006, y: 4024}
   vertical: 0
-  controlID: 62
+  controlID: 66
 --- !u!114 &8
 =======
     height: 518
@@ -267,8 +271,8 @@ MonoBehaviour:
     width: 405
 <<<<<<< HEAD
     height: 420
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 224}
+  m_MaxSize: {x: 4002, y: 4024}
   m_ActualView: {fileID: 13}
 =======
     height: 518
@@ -300,8 +304,8 @@ MonoBehaviour:
     width: 944
 <<<<<<< HEAD
     height: 420
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 204, y: 224}
+  m_MaxSize: {x: 4004, y: 4024}
   m_ActualView: {fileID: 14}
 =======
     height: 518
@@ -478,6 +482,7 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
 <<<<<<< HEAD
+<<<<<<< HEAD
       scrollPos: {x: 0, y: 177}
       m_SelectedIDs: f8dfffff
       m_LastClickedID: -8200
@@ -488,6 +493,12 @@ MonoBehaviour:
       m_LastClickedID: 43174
       m_ExpandedIDs: ecbaffff52c3ffff3ec9ffff00dcffff6cdfffff26e5fffffef8ffff5afaffff76fbffff8cfbffff
 >>>>>>> 6285a94ebed73d3682de4416250da428ebf8a6cf
+=======
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 5ee7ffff42ebffffa2ebffff1eefffff08f3ffff30f6ffff84fbffff363d0000a43d0000
+>>>>>>> parent of 31bd07a... Cambios
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -543,6 +554,7 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_Position:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Target: {x: 470, y: 145.54001, z: 0}
     speed: 2
     m_Value: {x: 470, y: 145.54001, z: 0}
@@ -551,6 +563,11 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 29.31168, y: 24.283234, z: 26.197203}
 >>>>>>> 6285a94ebed73d3682de4416250da428ebf8a6cf
+=======
+    m_Target: {x: 64.60384, y: -7.599945, z: -53.22683}
+    speed: 2
+    m_Value: {x: 64.60384, y: -7.599945, z: -53.22683}
+>>>>>>> parent of 31bd07a... Cambios
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -579,12 +596,17 @@ MonoBehaviour:
       m_Value: 0
   m_Rotation:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Target: {x: 0.05995712, y: -0.014972653, z: 0.00089979207, w: 0.9980883}
+=======
+    m_Target: {x: 0.32336536, y: -0.14372845, z: 0.049759984, w: 0.9339705}
+>>>>>>> parent of 31bd07a... Cambios
     speed: 2
-    m_Value: {x: 0.05995712, y: -0.014972653, z: 0.00089979207, w: 0.9980883}
+    m_Value: {x: 0.32336536, y: -0.14372845, z: 0.049759984, w: 0.9339705}
   m_Size:
-    m_Target: 268.60056
+    m_Target: 1070.9827
     speed: 2
+<<<<<<< HEAD
     m_Value: 268.60056
 =======
     m_Target: {x: 0.56890655, y: 0.11646515, z: -0.08180498, w: 0.8099934}
@@ -595,6 +617,9 @@ MonoBehaviour:
     speed: 2
     m_Value: 273.76025
 >>>>>>> 6285a94ebed73d3682de4416250da428ebf8a6cf
+=======
+    m_Value: 1070.9827
+>>>>>>> parent of 31bd07a... Cambios
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -786,6 +811,7 @@ MonoBehaviour:
     m_SearchArea: 1
     m_Folders:
 <<<<<<< HEAD
+<<<<<<< HEAD
     - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 64
@@ -798,12 +824,20 @@ MonoBehaviour:
   m_LastFolders:
   - Assets/Scenes
 >>>>>>> 6285a94ebed73d3682de4416250da428ebf8a6cf
+=======
+    - Assets/Marcos/Scripts
+  m_ViewMode: 1
+  m_StartGridSize: 64
+  m_LastFolders:
+  - Assets/Marcos/Scripts
+>>>>>>> parent of 31bd07a... Cambios
   m_LastFoldersGridSize: -1
   m_LastProjectPath: X:\Andrea y sus cosas\Universidad\ia\IA NEW
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
     m_SelectedIDs: de2a0000
     m_LastClickedID: 10974
@@ -813,6 +847,11 @@ MonoBehaviour:
     m_LastClickedID: 10064
     m_ExpandedIDs: 00000000642600005227000098270000b428000000ca9a3b
 >>>>>>> 6285a94ebed73d3682de4416250da428ebf8a6cf
+=======
+    m_SelectedIDs: 382b0000
+    m_LastClickedID: 11064
+    m_ExpandedIDs: 00000000ec2700000e280000c8280000de280000242900003e2a000000ca9a3b
+>>>>>>> parent of 31bd07a... Cambios
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -841,10 +880,14 @@ MonoBehaviour:
     m_SelectedIDs: 
     m_LastClickedID: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_ExpandedIDs: 000000009a270000bc270000762800008c280000d2280000ec290000
 =======
     m_ExpandedIDs: 00000000642600005227000098270000b4280000
 >>>>>>> 6285a94ebed73d3682de4416250da428ebf8a6cf
+=======
+    m_ExpandedIDs: 00000000ec2700000e280000c8280000de280000242900003e2a0000
+>>>>>>> parent of 31bd07a... Cambios
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

@@ -23,9 +23,9 @@ public class FollowerScript : MonoBehaviour {
         //define comportamiento del enemigo segun su tamaño
         if (ToPlayer)
         {
-            if (Mathf.Abs(Vector3.Distance(this.transform.position, positionPlayer.position)) > 7)
+            if (Mathf.Abs(Vector3.Distance(this.transform.position, positionPlayer)) > 7)
             {
-                transform.LookAt(positionPlayer);
+                v transform.LookAt(positionPlayer);
                 transform.Translate(new Vector3(0, 0, speed * Time.deltaTime));
             }
             else
@@ -35,7 +35,7 @@ public class FollowerScript : MonoBehaviour {
         }
         if (free) { 
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, player.transform.position, out hit, visionRange))
+            if (Physics.Raycast(transform.position, player.transform, out hit, visionRange))
             {
                 if (hit.transform.tag == "Player")
                 {

@@ -5,6 +5,7 @@ Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: initializeCompiler
+<<<<<<< HEAD
 Cmd: initializeCompiler
 <<<<<<< HEAD
 Cmd: compileSnippet
@@ -39,3 +40,5 @@ Cmd: initializeCompiler
 >>>>>>> 6285a94ebed73d3682de4416250da428ebf8a6cf
 Cmd: initializeCompiler
 Cmd: initializeCompiler
+=======
+>>>>>>> parent of 31bd07a... Cambios

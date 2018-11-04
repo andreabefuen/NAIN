@@ -3,20 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TimerScript : MonoBehaviour
-{
+public class GameManagerAxel : MonoBehaviour {
+
     float timer;
-    public Text TimeText;
-    // Use this for initialization
-    void Start()
-    {
+    Text TimeText;
+	// Use this for initialization
+	void Start () {
         timer = 0;
+        TimeText = GameObject.Find("TimerText").GetComponent<Text>();
 
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update () {
         timer += Time.deltaTime;
         int seconds = (int)timer % 60;
         int min = (int)timer / 60;
