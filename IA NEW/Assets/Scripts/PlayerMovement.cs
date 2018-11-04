@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class PlayerMovementAlex : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour {
 	private Rigidbody rb;
-	private float velocidad,timer;
+	private float velocidad,timer, energy;
     bool[] directions;
     bool run;
     public bool Dash;
     Animator theAnimator;
+    public Image Fill;
+    public Slider EnergySlider;
+
 
     // Use this for initialization
     void Awake () {
@@ -18,6 +22,7 @@ public class PlayerMovementAlex : MonoBehaviour {
         directions = new bool[4];
 		run = false;
         Dash = false;
+        energy = 100;
 	}
 	
 	// Update is called once per frame
@@ -60,7 +65,7 @@ public class PlayerMovementAlex : MonoBehaviour {
         }
 
 
-        if (run)
+        if (run && !Dash)
         {
             theAnimator.SetBool("isWalking", true);
             transform.Translate(0, 0, velocidad * Time.deltaTime);
@@ -75,7 +80,17 @@ public class PlayerMovementAlex : MonoBehaviour {
             }
 
         }
+        else
+        {
+            theAnimator.SetBool("isWalking", false);
 
+        }
+        if (energy< 100)
+        {
+            energy += Time.deltaTime * 10;
+        }
+        Fill.color = Color.Lerp(Color.red, Color.green, energy / 100);
+        EnergySlider.value = energy;
 
     }
     void KeysPress()
@@ -120,16 +135,31 @@ public class PlayerMovementAlex : MonoBehaviour {
             run = false;
         }
         if (Input.GetKey(KeyCode.E))
-        {
-            theAnimator.SetTrigger("dash");
-            timer = 0;
-            Dash = true;
+        {   if (energy > 50 && !Dash)
+            {
+                energy -= 50;
+                theAnimator.SetTrigger("dash");
+                timer = 0;
+                Dash = true;
+            }
         }
     }
     public void Death()
     {
         theAnimator.SetTrigger("die");
     }
+    public void Attack()
+    {
+        if (!Dash)
+        {
+            Death();
+        }
+    }
+    public void Press()
+    {
+        Debug.Log("Press");
+        theAnimator.SetTrigger("pressButton");
 
+    }
 
 }

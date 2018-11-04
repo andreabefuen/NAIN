@@ -45,9 +45,11 @@ public class SwitchDoorScriptJose : MonoBehaviour {
 		{
 			player = other.gameObject;
 			Pressed = true;
-		}
+            player.GetComponent<PlayerMovement>().Press();
 
-	}
+        }
+
+    }
 
 
 }
