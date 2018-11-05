@@ -18,6 +18,11 @@ public class EnemyScriptMarcos : MonoBehaviour {
 	private Pathfinding pathSearch;
 
 
+    public AudioClip audioPerseguir;
+    public AudioClip audioNormal;
+    public AudioSource audioJuego;
+
+
 	void Start()
 	{
 		ToPlayer = false;
@@ -27,6 +32,7 @@ public class EnemyScriptMarcos : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag ("Player");
 		pathInit = this.GetComponent<PathFollowing> ();
 		pathSearch= this.GetComponent<Pathfinding> ();
+      
 	}
 
 	// Update is called once per frame
@@ -45,6 +51,14 @@ public class EnemyScriptMarcos : MonoBehaviour {
             pathInit.enabled = true;
             pathSearch.target = positionPlayer;
             pathInit.target = positionPlayer;
+
+            if(audioJuego.clip.name != audioPerseguir.name)
+            {
+                audioJuego.Stop();
+                audioJuego.clip = audioPerseguir;
+                audioJuego.Play();
+            }
+
 
         }
         else {
@@ -70,8 +84,14 @@ public class EnemyScriptMarcos : MonoBehaviour {
 					ToPlayer = false;
 					pathSearch.enabled=false;
 					pathInit.enabled=false;
+                    if (audioJuego.clip.name != audioNormal.name)
+                    {
+                        audioJuego.Stop();
+                        audioJuego.clip = audioNormal;
+                        audioJuego.Play();
+                    }
 
-				}
+                }
 			}
 //
 //
@@ -94,8 +114,9 @@ public class EnemyScriptMarcos : MonoBehaviour {
 	}
 
 	public void SetPursuit(bool pur,Transform detec){
-		ToPlayer = pur;	
-		Vector3 target = new Vector3(detec.position.x,this.transform.position.y,detec.position.z);
+		ToPlayer = pur;
+
+        Vector3 target = new Vector3(detec.position.x,this.transform.position.y,detec.position.z);
 		Debug.Log("Antes del detec: "+detec.position);
 		positionPlayer = detec;
 		//Debug.Log("Después del detec: "+positionPlayer.position);
