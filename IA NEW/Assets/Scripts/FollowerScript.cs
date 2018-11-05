@@ -35,17 +35,20 @@ public class FollowerScript : MonoBehaviour {
                 theAnimator.SetBool("isWalking", false);
             }
         }
-        if (free) { 
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, player.transform.position, out hit, visionRange))
+        if (free) {
+            RaycastHit[] hit;
+            hit = Physics.RaycastAll(transform.position, player.transform.position, Mathf.Infinity);
+           
+            if (hit.Length >= 1)
             {
-                if (hit.transform.tag == "Player")
-                {
-                    positionPlayer = hit.transform;
-                    ToPlayer = true;
-                }
+                   if (hit[0].transform.tag == "Player")
+                    {
+                        Debug.Log("Player hit");
 
+                        positionPlayer = hit[0].transform;
+                    }
             }
+           
         }
     }
 
