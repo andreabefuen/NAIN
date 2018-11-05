@@ -16,6 +16,7 @@ public class EnemyScriptMarcos : MonoBehaviour {
 	private bool detectedOneTime;
 	private PathFollowing pathInit;
 	private Pathfinding pathSearch;
+    //private SwitchIlluminationScriptJose IlumJose;
 
 
 	void Start()
@@ -27,6 +28,7 @@ public class EnemyScriptMarcos : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag ("Player");
 		pathInit = this.GetComponent<PathFollowing> ();
 		pathSearch= this.GetComponent<Pathfinding> ();
+        //IlumJose = GameObject.Find("SwitchIllumination").GetComponent<SwitchIlluminationScriptJose> ();
 	}
 
 	// Update is called once per frame
@@ -37,15 +39,20 @@ public class EnemyScriptMarcos : MonoBehaviour {
 			ToPlayer=true;
 			positionPlayer=player.transform;
 		}
-		//define comportamiento del enemigo 
-		if (ToPlayer) {
-			//Debug.Log(positionPlayer.position);
-			pathSearch.enabled=true;
-			pathInit.enabled=true;
-			pathSearch.target=positionPlayer;
-			pathInit.target=positionPlayer;
-					
-		}
+        //define comportamiento del enemigo 
+        if (ToPlayer)
+        {
+            //Debug.Log(positionPlayer.position);
+            pathSearch.enabled = true;
+            pathInit.enabled = true;
+            pathSearch.target = positionPlayer;
+            pathInit.target = positionPlayer;
+
+        }
+        else {
+            pathSearch.enabled = false;
+            pathInit.enabled = false;
+        }
 
 		RaycastHit hit;
 		if (Physics.Raycast (transform.position, transform.forward, out hit, visionRange)) {
