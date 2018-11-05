@@ -227,7 +227,7 @@ public class PathFollowing : MonoBehaviour {
 	//Mood marcos
 	private void Fire(){
 		var bullet=(GameObject) Instantiate(bulletPrefab,bulletSpawn.transform.position,bulletSpawn.transform.rotation);
-		bullet.GetComponent<Rigidbody>().velocity=bullet.transform.forward*10;
+		bullet.GetComponent<Rigidbody>().velocity=bullet.transform.forward*50;
 		Destroy(bullet,2f);
 	}
 }

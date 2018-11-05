@@ -22,6 +22,14 @@ public class EnemyScriptMarcos : MonoBehaviour {
     public AudioClip audioNormal;
     public AudioSource audioJuego;
 
+	//Avisar
+	public float avisoRange=20f;
+
+
+	private GameObject[] enemiesMelee;
+	private GameObject[] enemiesShoot;
+	private EnemyScriptMarcos hitThis;
+
 
 	void Start()
 	{
@@ -32,6 +40,8 @@ public class EnemyScriptMarcos : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag ("Player");
 		pathInit = this.GetComponent<PathFollowing> ();
 		pathSearch= this.GetComponent<Pathfinding> ();
+		enemiesMelee = GameObject.FindGameObjectsWithTag("EnemyMelee");
+		enemiesShoot = GameObject.FindGameObjectsWithTag("EnemyShoot");
       
 	}
 
@@ -46,6 +56,7 @@ public class EnemyScriptMarcos : MonoBehaviour {
         //define comportamiento del enemigo 
         if (ToPlayer)
         {
+			this.Aviso();
             //Debug.Log(positionPlayer.position);
             pathSearch.enabled = true;
             pathInit.enabled = true;
@@ -117,10 +128,25 @@ public class EnemyScriptMarcos : MonoBehaviour {
 		ToPlayer = pur;
 
         Vector3 target = new Vector3(detec.position.x,this.transform.position.y,detec.position.z);
-		Debug.Log("Antes del detec: "+detec.position);
+		//Debug.Log("Antes del detec: "+detec.position);
 		positionPlayer = detec;
 		//Debug.Log("Después del detec: "+positionPlayer.position);
 		//this.transform.LookAt(target);
+	}
+
+	private void Aviso(){
+		foreach(GameObject enemy in enemiesMelee){
+			if(Mathf.Abs (Vector3.Distance (this.transform.position, enemy.transform.position))<avisoRange){
+				hitThis = enemy.GetComponent<EnemyScriptMarcos> ();
+				hitThis.SetPursuit(ToPlayer, positionPlayer);
+			}
+		}
+		foreach(GameObject enemy in enemiesShoot){
+			if(Mathf.Abs (Vector3.Distance (this.transform.position, enemy.transform.position))<avisoRange){
+				hitThis = enemy.GetComponent<EnemyScriptMarcos> ();
+				hitThis.SetPursuit(ToPlayer, positionPlayer);
+			}
+		}
 	}
 
 }
