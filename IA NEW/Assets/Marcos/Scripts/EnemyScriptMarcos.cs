@@ -37,15 +37,20 @@ public class EnemyScriptMarcos : MonoBehaviour {
 			ToPlayer=true;
 			positionPlayer=player.transform;
 		}
-		//define comportamiento del enemigo 
-		if (ToPlayer) {
-			//Debug.Log(positionPlayer.position);
-			pathSearch.enabled=true;
-			pathInit.enabled=true;
-			pathSearch.target=positionPlayer;
-			pathInit.target=positionPlayer;
-					
-		}
+        //define comportamiento del enemigo 
+        if (ToPlayer)
+        {
+            //Debug.Log(positionPlayer.position);
+            pathSearch.enabled = true;
+            pathInit.enabled = true;
+            pathSearch.target = positionPlayer;
+            pathInit.target = positionPlayer;
+
+        }
+        else {
+            pathSearch.enabled = false;
+            pathInit.enabled = false;
+        }
 
 		RaycastHit hit;
 		if (Physics.Raycast (transform.position, transform.forward, out hit, visionRange)) {
