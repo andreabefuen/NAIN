@@ -12,10 +12,11 @@ public class PlayerMovement : MonoBehaviour {
     Animator theAnimator;
     public Image Fill;
     public Slider EnergySlider;
-
+    public GameObject GameOverPanel, PausePanel;
 
     // Use this for initialization
     void Awake () {
+        Time.timeScale = 1;
         theAnimator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody> ();
 		velocidad = 10f;
@@ -143,10 +144,16 @@ public class PlayerMovement : MonoBehaviour {
                 Dash = true;
             }
         }
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            PauseGame();
+        }
     }
     public void Death()
     {
         theAnimator.SetTrigger("die");
+        GameOverPanel.SetActive(true);
+        Time.timeScale = 0;
     }
     public void Attack()
     {
@@ -161,5 +168,9 @@ public class PlayerMovement : MonoBehaviour {
         theAnimator.SetTrigger("pressButton");
 
     }
-
+    void PauseGame()
+    {
+        PausePanel.SetActive(true);
+        Time.timeScale = 0;
+    }
 }

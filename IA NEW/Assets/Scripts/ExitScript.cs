@@ -21,6 +21,7 @@ public class ExitScript : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             CompletePanel.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 }
