@@ -32,7 +32,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1
+  m_Radius: 0.8
   m_Height: 7
   m_Direction: 1
   m_Center: {x: 0, y: 3.4, z: 0.3}
@@ -46,10 +46,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.8
+  m_Radius: 1.2
   m_Height: 7
   m_Direction: 1
-  m_Center: {x: 0, y: 3.5, z: 0.3}
+  m_Center: {x: 0, y: 3.4, z: 0.3}
 --- !u!114 &1058620704962491499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,6 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ToPlayer: 0
+  free: 0
 --- !u!1001 &4091683543717856769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70,53 +71,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4396440846570524, guid: 8b4010bf68c3c9845b5cc651e072c05a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4396440846570524, guid: 8b4010bf68c3c9845b5cc651e072c05a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
+    - target: {fileID: 1929135848253796, guid: 8b4010bf68c3c9845b5cc651e072c05a, type: 3}
+      propertyPath: m_Name
+      value: JewishFollower Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4396440846570524, guid: 8b4010bf68c3c9845b5cc651e072c05a, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.22
-      objectReference: {fileID: 0}
-    - target: {fileID: 4396440846570524, guid: 8b4010bf68c3c9845b5cc651e072c05a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4396440846570524, guid: 8b4010bf68c3c9845b5cc651e072c05a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4396440846570524, guid: 8b4010bf68c3c9845b5cc651e072c05a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4396440846570524, guid: 8b4010bf68c3c9845b5cc651e072c05a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4396440846570524, guid: 8b4010bf68c3c9845b5cc651e072c05a, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4396440846570524, guid: 8b4010bf68c3c9845b5cc651e072c05a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4396440846570524, guid: 8b4010bf68c3c9845b5cc651e072c05a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4396440846570524, guid: 8b4010bf68c3c9845b5cc651e072c05a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1929135848253796, guid: 8b4010bf68c3c9845b5cc651e072c05a, type: 3}
-      propertyPath: m_Name
-      value: JewishFollower Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b4010bf68c3c9845b5cc651e072c05a, type: 3}
