@@ -52,7 +52,7 @@ public class FollowerScript : MonoBehaviour {
         if (other.gameObject.tag == "Player")
         {
             player = other.gameObject;
-            positionPlayer.position = other.gameObject.transform.position;
+            positionPlayer.position = player.transform.position;
             ToPlayer = true;
             free = true;
         }
