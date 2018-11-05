@@ -25,6 +25,8 @@ public class FollowerScript : MonoBehaviour {
         {
             if (Mathf.Abs(Vector3.Distance(this.transform.position, positionPlayer.position)) > 0 && Mathf.Abs(Vector3.Distance(this.transform.position, player.transform.position)) > 7)
             {
+                theAnimator.SetBool("isWalking", true);
+
                 transform.LookAt(positionPlayer);
                 transform.Translate(new Vector3(0, 0, speed * Time.deltaTime));
             }
@@ -52,7 +54,7 @@ public class FollowerScript : MonoBehaviour {
         if (other.gameObject.tag == "Player")
         {
             player = other.gameObject;
-            positionPlayer.position = player.transform.position;
+            positionPlayer = player.transform;
             ToPlayer = true;
             free = true;
         }
