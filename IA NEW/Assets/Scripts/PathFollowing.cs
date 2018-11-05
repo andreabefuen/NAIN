@@ -32,6 +32,8 @@ public class PathFollowing : MonoBehaviour {
 
     float initialSpeed;
 
+    int contSound = 0;
+
     
 
 	//Añadido Marcos
@@ -208,7 +210,15 @@ public class PathFollowing : MonoBehaviour {
 				Debug.Log(distance);
 				if((Mathf.Abs (Vector3.Distance (this.transform.position, Player.transform.position)))<5.5f){
 					anim.SetTrigger("punch");
-					Player.GetComponent<PlayerMovement>().Attack();
+                    if (!damageAudio.isPlaying  && contSound == 0)
+                    {
+                        damageAudio.Play();
+                        contSound++;
+
+                    }
+
+
+                    Player.GetComponent<PlayerMovement>().Attack();
 				}
                 
 
