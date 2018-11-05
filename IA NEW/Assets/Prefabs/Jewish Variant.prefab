@@ -353,6 +353,8 @@ MonoBehaviour:
   Dash: 0
   Fill: {fileID: 7395009318310046007}
   EnergySlider: {fileID: 423453605771658556}
+  GameOverPanel: {fileID: 0}
+  PausePanel: {fileID: 0}
 --- !u!1 &7091533629164385482
 GameObject:
   m_ObjectHideFlags: 0
