@@ -14,6 +14,10 @@ public class PlayerMovement : MonoBehaviour {
     public Slider EnergySlider;
     public GameObject GameOverPanel, PausePanel;
 
+    public AudioSource audioMorir;
+    public AudioSource audioJuego;
+    public AudioClip audioGameOver;
+
     // Use this for initialization
     void Awake () {
         Time.timeScale = 1;
@@ -153,7 +157,13 @@ public class PlayerMovement : MonoBehaviour {
     {
         theAnimator.SetTrigger("die");
         GameOverPanel.SetActive(true);
-        Time.timeScale = 0;
+        audioJuego.Stop();
+        audioMorir.Play();
+       
+
+        //Para que de tiempo a que la animación se vea
+        Invoke("DeathTime", 1f);
+        
     }
     public void Attack()
     {
@@ -172,5 +182,13 @@ public class PlayerMovement : MonoBehaviour {
     {
         PausePanel.SetActive(true);
         Time.timeScale = 0;
+    }
+
+    void DeathTime()
+    {
+
+
+        Time.timeScale = 0;
+
     }
 }

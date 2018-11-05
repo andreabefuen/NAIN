@@ -32,12 +32,16 @@ public class PathFollowing : MonoBehaviour {
 
     float initialSpeed;
 
+    
 
 	//Añadido Marcos
 	public GameObject bulletPrefab;
 	public GameObject bulletSpawn;
 	private float timeLeft=0f;
 	private GameObject Player;
+
+    //Sounds
+    public AudioSource damageAudio;
 
 
     private void Awake()
@@ -121,6 +125,7 @@ public class PathFollowing : MonoBehaviour {
 					if(timeLeft<=0){
 						anim.SetTrigger("shoot");
 						Debug.Log("DISPARA");
+                        damageAudio.Play();
 						this.Fire();
 						timeLeft=4f;
 

@@ -13,6 +13,8 @@ public class MetalFloor : MonoBehaviour
 	private ShootEnemy shootThis;
 	private EnemyScriptMarcos hitThis;
 
+    private AudioSource audioSuelo;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,8 @@ public class MetalFloor : MonoBehaviour
 		enemiesShoot = GameObject.FindGameObjectsWithTag("EnemyShoot");
 		sound = false;
 		inTrigger = true;
+
+        audioSuelo = GetComponent<AudioSource>();
         
     }
 
@@ -42,6 +46,7 @@ public class MetalFloor : MonoBehaviour
 		if (other.gameObject.tag == "Player")
 		{
 			sound = true;
+            audioSuelo.Play();
 		}
 	}
 
