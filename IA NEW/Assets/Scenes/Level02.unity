@@ -686,7 +686,7 @@ Transform:
   - {fileID: 411467903}
   - {fileID: 339609809}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &339609808
 GameObject:
@@ -1394,6 +1394,11 @@ PrefabInstance:
       propertyPath: audioJuego
       value: 
       objectReference: {fileID: 1298737248}
+    - target: {fileID: 996861546995287678, guid: 07fc67fcffe85ed4ca0aea34ab262447,
+        type: 3}
+      propertyPath: avisoRange
+      value: 80
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07fc67fcffe85ed4ca0aea34ab262447, type: 3}
 --- !u!1 &983761172
@@ -1629,6 +1634,11 @@ PrefabInstance:
       propertyPath: grid
       value: 
       objectReference: {fileID: 1298737246}
+    - target: {fileID: 4376456356337645295, guid: 4364bd4f294fb1a45a904ae94a49e37b,
+        type: 3}
+      propertyPath: avisoRange
+      value: 80
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4364bd4f294fb1a45a904ae94a49e37b, type: 3}
 --- !u!1 &1069903626

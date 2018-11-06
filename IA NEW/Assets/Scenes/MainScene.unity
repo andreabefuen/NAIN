@@ -2082,6 +2082,11 @@ PrefabInstance:
       propertyPath: audioJuego
       value: 
       objectReference: {fileID: 660793775}
+    - target: {fileID: 996861546995287678, guid: 07fc67fcffe85ed4ca0aea34ab262447,
+        type: 3}
+      propertyPath: avisoRange
+      value: 70
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07fc67fcffe85ed4ca0aea34ab262447, type: 3}
 --- !u!1001 &2879536163978697678
@@ -2454,5 +2459,10 @@ PrefabInstance:
       propertyPath: audioJuego
       value: 
       objectReference: {fileID: 660793775}
+    - target: {fileID: 4376456356337645295, guid: 4364bd4f294fb1a45a904ae94a49e37b,
+        type: 3}
+      propertyPath: avisoRange
+      value: 70
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4364bd4f294fb1a45a904ae94a49e37b, type: 3}
