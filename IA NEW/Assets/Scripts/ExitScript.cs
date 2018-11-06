@@ -6,20 +6,15 @@ public class ExitScript : MonoBehaviour
 {
     public GameObject CompletePanel;
     public float dist = 30;
-    GameObject[] Hostages = new GameObject[10];
+    GameObject[] Hostages;
     // Start is called before the first frame update
     void Start()
     {
         Hostages = GameObject.FindGameObjectsWithTag("Follower");
-
+        Debug.Log(Hostages.Length);
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
@@ -29,7 +24,7 @@ public class ExitScript : MonoBehaviour
                 int count = 0;
                 foreach (GameObject hos in Hostages)
                 {
-                    if (Mathf.Abs(Vector3.Distance(this.transform.position, hos.transform.position)) <= dist)
+                    if (hos.GetComponent<FollowerScript>().ToPlayer)
                     {
                         count++;
                     }

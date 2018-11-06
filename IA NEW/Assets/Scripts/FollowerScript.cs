@@ -5,25 +5,25 @@ using UnityEngine;
 public class FollowerScript : MonoBehaviour {
 
     GameObject player;
-    float speed = 6f;
+    float speed = 8f;
     public bool ToPlayer, free;
     Animator theAnimator;
     float visionRange = 40f;
-    private Transform positionPlayer;
+    private Vector3 positionPlayer;
 
     void Start()
     {
         theAnimator = GetComponent<Animator>();
         ToPlayer = false;
+        free = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //define comportamiento del enemigo segun su tamaño
         if (ToPlayer)
         {
-            if (Mathf.Abs(Vector3.Distance(this.transform.position, positionPlayer.position)) > 0 && Mathf.Abs(Vector3.Distance(this.transform.position, player.transform.position)) > 7)
+            if (Mathf.Abs(Vector3.Distance(this.transform.position, positionPlayer)) > 0.1 && Mathf.Abs(Vector3.Distance(this.transform.position, player.transform.position)) > 7)
             {
                 theAnimator.SetBool("isWalking", true);
 
@@ -32,16 +32,17 @@ public class FollowerScript : MonoBehaviour {
             }
             else
             {
+                ToPlayer = false;
                 theAnimator.SetBool("isWalking", false);
             }
         }
-        if (free) { 
+       if (free) {
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, player.transform.position, out hit, visionRange))
+            if (Physics.Linecast(transform.position, player.transform.position, out hit))
             {
                 if (hit.transform.tag == "Player")
                 {
-                    positionPlayer = hit.transform;
+                    positionPlayer = hit.transform.position;
                     ToPlayer = true;
                 }
 
@@ -54,7 +55,7 @@ public class FollowerScript : MonoBehaviour {
         if (other.gameObject.tag == "Player")
         {
             player = other.gameObject;
-            positionPlayer = player.transform;
+            positionPlayer = player.transform.position;
             ToPlayer = true;
             free = true;
         }
