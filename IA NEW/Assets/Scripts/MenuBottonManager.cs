@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MenuBottonManager : MonoBehaviour
 {
 
+
     private string FirstLevel = "MainScene";
 
     private string SecondLevel = "Level02";
@@ -14,6 +15,11 @@ public class MenuBottonManager : MonoBehaviour
     private string Menu = "Menu";
 
     public GameObject pausePanel;
+
+    private void Awake()
+    {
+        Time.timeScale = 1;
+    }
 
     public void OnStartButton()
     {
