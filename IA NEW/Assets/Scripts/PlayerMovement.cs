@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour {
     public Image Fill;
     public Slider EnergySlider;
     public GameObject GameOverPanel, PausePanel;
-
+    public GameObject CompletePanel;
     public AudioSource audioMorir;
     public AudioSource audioJuego;
     public AudioClip audioGameOver;
@@ -152,6 +152,13 @@ public class PlayerMovement : MonoBehaviour {
         {
             PauseGame();
         }
+
+        if (Input.GetKey(KeyCode.N))
+        {
+            CompletePanel.SetActive(true);
+            Time.timeScale = 0;
+        }
+
     }
     public void Death()
     {
